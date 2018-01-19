@@ -6,10 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import generalUtils.Randomizer;
 
-/**
- * Created by GenaBook on 8/19/2016.
- *
- */
 public class CommonStepObjects {
 
     protected static WebDriver driver;

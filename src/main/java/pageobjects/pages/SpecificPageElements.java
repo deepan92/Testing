@@ -1,9 +1,5 @@
 package pageobjects.pages;
 
-/**
- * Created by gchaikin on 01/03/2017.
- */
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -15,11 +11,6 @@ import pageobjects.pages.PageObjectUtils;
 import pageobjects.pages.PageObjects;
 import pageobjects.PageElementIds;
 import selenium.WebDriverFactory;
-
-/**
- * LOGIN SCREEN
- * Mapping all the login screen elements
- */
 
 public enum SpecificPageElements implements PageObjects {
 

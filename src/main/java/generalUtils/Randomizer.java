@@ -5,11 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 
-/**
- * Created by gchaikin on 05/01/2017.
- *
- */
-
 public class Randomizer {
 
     private DateFormat dateFormat = new SimpleDateFormat("yyMMdd_HHmm_");

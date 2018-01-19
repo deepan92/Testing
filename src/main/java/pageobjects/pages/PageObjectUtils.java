@@ -3,6 +3,7 @@ package pageobjects.pages;
 import org.apache.commons.lang3.tuple.Pair;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import selenium.WebDriverFactory;
 
@@ -12,78 +13,34 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class PageObjectUtils {
-    /**
-     * Function awaits for the spinner container to finish loading,
-     * Usualy means the page is loaded
-     */
-    public static void spinnerWait() {
-        WebDriver driver = WebDriverFactory.getInstance().getWebDriver();
-        Long startTime = System.currentTimeMillis();
-        try {
-            WebElement webElement = driver.findElement(By.className("spinner-container"));
-            while (System.currentTimeMillis() - startTime < 20 * 5000 && webElement.isDisplayed()) {
-            }
-        } catch (StaleElementReferenceException ignored) {
 
-        } catch (NoSuchElementException r) {
-            System.out.println("\nSpinner is not visible - Page loaded\n");
-        }
+    public static void waitLoadFinish(WebDriver drv) {
+        WebDriverWait wait = new WebDriverWait(drv, 20);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("loading")));
     }
 
-    /**
-     * Method used to scroll to the top of the current page
-     *
-     * @throws InterruptedException used for Thread.sleep (pending removal)
-     */
     public static void scrollToTop() throws InterruptedException {
         WebDriver driver = WebDriverFactory.getInstance().getWebDriver();
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, 0)");
-        Thread.sleep(1000);
     }
 
-    /**
-     * Method used to scroll to the bottom of the current page
-     *
-     * @param driver Used for passing the current state driver
-     * @throws InterruptedException used for Thread.sleep (pending removal)
-     */
     public static void scrollToBottom(WebDriver driver) throws InterruptedException {
         ((JavascriptExecutor) driver).executeScript(" window.scrollTo(0,document.body.scrollHeight)");
         Thread.sleep(1000);
     }
 
-    /**
-     * Method used to scroll to a view of specified element
-     *
-     * @param element The element to scroll to.
-     * @throws InterruptedException used for Thread.sleep (pending removal)
-     */
     public static void scrollToElement(WebElement element) throws InterruptedException {
         WebDriver driver = WebDriverFactory.getInstance().getWebDriver();
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
         Thread.sleep(500);
     }
 
-    /**
-     * Method used to scroll to a view of specified element and return the element
-     *
-     * @param driver  Used for passing the current state driver
-     * @param element The element to scroll to.
-     * @throws InterruptedException used for Thread.sleep (pending removal)
-     */
     public static WebElement scrollToElementGet(WebDriver driver, WebElement element) throws InterruptedException {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
         Thread.sleep(500);
         return element;
     }
 
-    /**
-     * The method can determine whether the list is in a table or not.
-     *
-     * @param element Element with the list inside
-     * @param keys    Keys for filtering
-     * @return Return list of filtered items
-     */
     public static List<WebElement> getFilteredListByKey(WebElement element, List<String> keys) {
         List<WebElement> result = new ArrayList<>();
         List<WebElement> itemsList;
@@ -93,21 +50,11 @@ public class PageObjectUtils {
         return result;
     }
 
-    /**
-     * Overloads the previous method with only one string as a key
-     */
     public static List<WebElement> getFilteredListByKey(WebElement element, String key) {
         return getFilteredListByKey(element, Collections.singletonList(key));
     }
 
-    /**
-     * @param element      Receive an element which includes a list
-     * @param fullItemName The specific item to look for
-     * @return Return the required element if found, otherwise fail.
-     */
     public static WebElement getSpecificItemFromListElement(WebElement element, String fullItemName) throws InterruptedException {
-        Thread.sleep(4000);
-        spinnerWait();
         scrollToTop();
         String t = element.getAttribute("innerHTML").contains("<tr") ? "tr" : "li";
         List<WebElement> itemsList = element.findElements(By.tagName(t));
@@ -120,11 +67,6 @@ public class PageObjectUtils {
         return null;
     }
 
-    /**
-     * @param element      Receive an element which includes a list
-     * @param fullItemName The specific item to look for
-     * @return Return the required element if found, otherwise fail.
-     */
     private static int getIndexOfSpecificItemFromListElement(WebElement element, String fullItemName) {
         String t = element.getAttribute("innerHTML").contains("<tr") ? "tr" : "li";
         List<WebElement> itemsList = element.findElements(By.tagName(t));
@@ -137,11 +79,6 @@ public class PageObjectUtils {
         return 0;
     }
 
-    /**
-     * @param element      Receive an element which includes a list
-     * @param fullItemName The specific item to look for
-     * @return Return the required element if found, otherwise fail.
-     */
     public static WebElement getNextSpecificItemFromListElement(WebElement element, String fullItemName) {
         String t = element.getAttribute("innerHTML").contains("<tr") ? "tr" : "li";
         List<WebElement> itemsList = element.findElements(By.tagName(t));
@@ -182,7 +119,7 @@ public class PageObjectUtils {
         WebDriver driver = WebDriverFactory.getInstance().getWebDriver();
         WebDriverWait wait = new WebDriverWait(driver, 20);
         WebElement element = null;
-        spinnerWait();
+        waitLoadFinish(driver);
         scrollToTop();
         for (Pair<LocatorType, String> loc : locatorPairs) {
             if (element == null)

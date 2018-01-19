@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static pageobjects.pages.PageObjectUtils.scrollToTop;
-import static pageobjects.pages.PageObjectUtils.spinnerWait;
+import static pageobjects.pages.PageObjectUtils.waitLoadFinish;
 
 public interface PageObjects {
     WebDriver driver = WebDriverFactory.getInstance().getWebDriver();
@@ -25,7 +25,7 @@ public interface PageObjects {
     }
 
     default void clickElement() throws InterruptedException {
-        spinnerWait();
+        waitLoadFinish();
         WebElement element = getElement();
         scrollToTop();
         try {
@@ -36,9 +36,6 @@ public interface PageObjects {
 
     default WebElement getElement() throws InterruptedException {
         initializeMap();
-//        for (Map.Entry<GeneralPageUtils.LocatorType, String> entry : locatorPairs) {
-//          //  System.out.println(entry.getKey() + " " + entry.getValue());
-//        }
         return PageObjectUtils.getElementFromPairs(locatorPairs);
     }
 
