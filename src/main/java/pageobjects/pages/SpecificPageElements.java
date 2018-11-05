@@ -18,20 +18,23 @@ public enum SpecificPageElements implements PageObjects {
     OtherSpecificElement(PageObjectUtils.LocatorType.CLASSNAME, "valueOfClassAttribute"),
     OtherElement(PageObjectUtils.LocatorType.ID, "valueOfIDAttribute");
 
-    public PageObjectUtils.LocatorType locator;
-    public String id;
+    private List<GeneralPageUtils.LocatorType> loc;
+    private List<String> id;
 
-    SpecificPageElements(PageObjectUtils.LocatorType locator, String id) {
-        this.locator = locator;
-        this.id = id;
+    @Override
+    public void initializeMap() {
+        locatorPairs.clear();
+        for (int i = 0; i < loc.size(); i++) locatorPairs.add(Pair.of(loc.get(i), id.get(i)));
     }
 
-    @Override
-    public void initializeMap() {}
+    SpecificPageElements(GeneralPageUtils.LocatorType loc, String id) {
+        this.loc = Collections.singletonList(loc);
+        this.id = Collections.singletonList(id);
+    }
 
-    @Override
-    public WebElement getElement() {
-        return PageObjectUtils.locateElement(driver, locator, id);
+    SpecificPageElements(List<GeneralPageUtils.LocatorType> loc, List<String> id) {
+        this.loc = loc;
+        this.id = id;
     }
 
     public static String getWebsiteUrl() {
