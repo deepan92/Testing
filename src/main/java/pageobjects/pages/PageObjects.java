@@ -25,7 +25,7 @@ public interface PageObjects {
     }
 
     default void clickElement() throws InterruptedException {
-        waitLoadFinish();
+        waitLoadFinish(driver);
         WebElement element = getElement();
         scrollToTop();
         try {

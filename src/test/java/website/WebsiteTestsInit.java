@@ -19,13 +19,13 @@ import stepdefs.CommonStepObjects;
 
 public class WebsiteTestsInit {
 
-    @Before
-    public static void InitilizeTests() {
-        CommonStepObjects.setWebDriver(WebDriverFactory.getInstance().getWebDriver());
-    }
-
-    @After
-    public static void TearDown() {
-        CommonStepObjects.closeDriver();
-    }
+//    @Before
+//    public static void InitilizeTests() {
+//        CommonStepObjects.setWebDriver(WebDriverFactory.getInstance().getWebDriver());
+//    }
+//
+//    @After
+//    public static void TearDown() {
+//        CommonStepObjects.closeDriver();
+//    }
 }

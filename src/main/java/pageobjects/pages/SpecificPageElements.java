@@ -1,5 +1,6 @@
 package pageobjects.pages;
 
+import org.apache.commons.lang3.tuple.Pair;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -12,13 +13,16 @@ import pageobjects.pages.PageObjects;
 import pageobjects.PageElementIds;
 import selenium.WebDriverFactory;
 
+import java.util.Collections;
+import java.util.List;
+
 public enum SpecificPageElements implements PageObjects {
 
     SpecificElement(PageObjectUtils.LocatorType.NAME, "valueOfNameAttribute"),
     OtherSpecificElement(PageObjectUtils.LocatorType.CLASSNAME, "valueOfClassAttribute"),
     OtherElement(PageObjectUtils.LocatorType.ID, "valueOfIDAttribute");
 
-    private List<GeneralPageUtils.LocatorType> loc;
+    private List<PageObjectUtils.LocatorType> loc;
     private List<String> id;
 
     @Override
@@ -27,12 +31,12 @@ public enum SpecificPageElements implements PageObjects {
         for (int i = 0; i < loc.size(); i++) locatorPairs.add(Pair.of(loc.get(i), id.get(i)));
     }
 
-    SpecificPageElements(GeneralPageUtils.LocatorType loc, String id) {
+    SpecificPageElements(PageObjectUtils.LocatorType loc, String id) {
         this.loc = Collections.singletonList(loc);
         this.id = Collections.singletonList(id);
     }
 
-    SpecificPageElements(List<GeneralPageUtils.LocatorType> loc, List<String> id) {
+    SpecificPageElements(List<PageObjectUtils.LocatorType> loc, List<String> id) {
         this.loc = loc;
         this.id = id;
     }
