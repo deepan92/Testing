@@ -262,6 +262,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554190486961" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -385,11 +386,11 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Cucumber java.Feature: RandomTest" />
       <item itemvalue="Cucumber java.Scenario: Gender empty error" />
       <item itemvalue="Cucumber java.Scenario: Phone number empty error" />
-      <item itemvalue="Cucumber java.Feature: RandomTest" />
-      <item itemvalue="JUnit.WebsiteTestsInit" />
       <item itemvalue="Cucumber java.Scenario: The actual test" />
+      <item itemvalue="JUnit.WebsiteTestsInit" />
     </list>
     <recent_temporary>
       <list>
