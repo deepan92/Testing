@@ -1,36 +1,24 @@
 package stepdefs.websitesteps;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import selenium.WebDriverFactory;
-import stepdefs.CommonStepObjects;
+
 
 public class WebsiteStepDefs {
     private WebDriver driver;
 
-    @Given("^The precondition for the test - goes to website or logs in$")
-    public void thePreconditionForTheTestGoesToWebsiteOrLogsIn() throws Throwable {
-
-//        driver.findElement(By.cssSelector("#auth > div > div:nth-child(2) > div > form > div.radio-checkbox > label")).click();
-//        Thread.sleep(3000);
-    }
-
     @Before
     public void setUp() throws Throwable {
-        System.setProperty("webdriver.chrome.driver", "/Users/fatlum/Desktop/Vianova/src/main/resources/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
         driver = new ChromeDriver();
         driver.manage().window().fullscreen();
         driver.navigate().to("https://nj-staging.vianovahealth.com/login");
@@ -41,7 +29,7 @@ public class WebsiteStepDefs {
         Thread.sleep(3000);
     }
 
-    @And("^click in Onboarding bttn$")
+    @And("^Click on boarding btn$")
     public void clickInOnboardingBttn() throws Throwable {
 //        Thread.sleep(10000);
         new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//*[@id=\"navbarVianova\"]/ul[1]/li[1]/a"))));
@@ -97,7 +85,7 @@ public class WebsiteStepDefs {
         Thread.sleep(3000);
     }
 
-    @And("^fill the empty inputs in Patient Information from homephone to city$")
+    @And("^Fill the empty inputs in Patient Information from home phone to city$")
     public void fillTheEmptyInputsInPatientInformationFromHomephoneToCity() throws Throwable {
         driver.findElement(By.cssSelector("#onBoardForm > div:nth-child(2) > div:nth-child(6) > div > div > div:nth-child(1) > div > input")).sendKeys("bleronhasani.2001@gmail.com");
         new WebDriverWait(driver, 10).until(ExpectedConditions.textToBePresentInElementValue(By.cssSelector("#onBoardForm > div:nth-child(2) > div:nth-child(6) > div > div > div:nth-child(1) > div > input"), "bleronhasani.2001@gmail.com"));
@@ -114,7 +102,7 @@ public class WebsiteStepDefs {
         Thread.sleep(3000);
     }
 
-    @And("^fill empty inputs in Patient Information from patientstate to patientcare_provider_phone$")
+    @And("^Fill empty inputs in Patient Information from patient state to patient care_provider_phone$")
     public void fillEmptyInputsInPatientInformationFromPatientstateToPatientcare_provider_phone() throws Throwable {
         driver.findElement(By.name("patient[state]")).click();
         new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.name("patient[state]")));
@@ -151,10 +139,10 @@ public class WebsiteStepDefs {
 
     }
 
-    @And("^Fill the empty inputs in Care giver Information from  cell phone to careGiverpreferred_contact$")
-    public void fillTheEmptyInputsInCareGiverInformationFromCellPhoneToCareGiverpreferred_contact() {
+    @And("^Fill the empty inputs in Care giver Information from cell phone to care give preferred_contact$")
+    public void fillTheEmptyInputsInCareGiverInformationFromCellPhoneToCareGivePreferredContact() {
         driver.findElement(By.id("cell_phone")).sendKeys("(609) 345-2487");
-        new WebDriverWait(driver, 10).until(ExpectedConditions.textToBePresentInElementValue(By.id("cell_phone"), "(609) 345-2487"));
+//        new WebDriverWait(driver, 10).until(ExpectedConditions.textToBePresentInElementValue(By.id("cell_phone"), "(609) 345-2487"));
         driver.findElement(By.id("home_phone")).sendKeys("(609) 345-2487");
         new WebDriverWait(driver, 10).until(ExpectedConditions.textToBePresentInElementValue(By.id("home_phone"), "(609) 345-2487"));
         driver.findElement(By.id("work_phone")).sendKeys("(609) 345-2487");
@@ -187,9 +175,9 @@ public class WebsiteStepDefs {
     @And("^Fill the empty inputs in Emergency Contact Information from cell phone to the end$")
     public void fillTheEmptyInputsInEmergencyContactInformationFromCellPhoneToTheEnd() {
         driver.findElement(By.id("cell_phone")).sendKeys("(609) 345-2487");
-        new WebDriverWait(driver, 10).until(ExpectedConditions.textToBePresentInElementValue(By.id("cell_phone"), "(609) 345-2487"));
+//        new WebDriverWait(driver, 10).until(ExpectedConditions.textToBePresentInElementValue(By.id("cell_phone"), "(609) 345-2487"));
         driver.findElement(By.id("home_phone")).sendKeys("(609) 345-2487");
-        new WebDriverWait(driver, 10).until(ExpectedConditions.textToBePresentInElementValue(By.id("home_phone"), "(609) 345-2487"));
+//        new WebDriverWait(driver, 10).until(ExpectedConditions.textToBePresentInElementValue(By.id("home_phone"), "(609) 345-2487"));
         driver.findElement(By.id("work_phone")).sendKeys("(609) 345-2487");
 //        new WebDriverWait(driver, 10).until(ExpectedConditions.textToBePresentInElementValue(By.id("work_phone"), "(609) 345-2487"));
         driver.findElement(By.name("emergencyContact[preferred_contact]")).click();
@@ -224,7 +212,7 @@ public class WebsiteStepDefs {
         new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#onBoardForm > div:nth-child(2) > div:nth-child(21) > div:nth-child(1) > div:nth-child(2) > div > div > div:nth-child(1) > div > select > option:nth-child(16)")));
     }
 
-    @And("^Fill  empty inputs in Specialist Information from specialists preferred_contact to the end$")
+    @And("^Fill empty inputs in Specialist Information from specialists preferred_contact to the end$")
     public void fillEmptyInputsInSpecialistInformationFromSpecialistsPreferred_contactToTheEnd() {
         driver.findElement(By.name("specialists[0][preferred_contact]")).click();
         new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.name("specialists[0][preferred_contact]")));
@@ -413,7 +401,6 @@ public class WebsiteStepDefs {
     public void dateOfBirth() {
         driver.findElement(By.id("date_of_birth")).sendKeys("12");
         driver.findElement(By.id("date_of_birth")).sendKeys("18");
-//        new WebDriverWait(driver, 10).until(ExpectedConditions.textToBePresentInElementValue((By.id("date_of_birth")), "18"));
         WebElement element = driver.findElement(By.id("date_of_birth"));
         element.sendKeys("2001");
     }
@@ -427,9 +414,8 @@ public class WebsiteStepDefs {
     }
 
 
-    //    NAME AND LASTNAME IS NULL
-    @And("^firstname, lastname is null$")
-    public void firstnameLastnameIsNull() {
+    @And("^first name, last name is null$")
+    public void firstNameLastNameIsNull() {
         WebElement element = driver.findElement(By.id("first_name"));
         element.sendKeys("");
         driver.findElement(By.id("last_name")).sendKeys("");
@@ -437,8 +423,6 @@ public class WebsiteStepDefs {
 
     }
 
-
-    //NAME WRONG SAVE    //
     @And("^fill wrong name$")
     public void fillWrongName() {
         WebElement element = driver.findElement(By.id("first_name"));
@@ -460,7 +444,6 @@ public class WebsiteStepDefs {
         element1.sendKeys("12345678901234567890987654321234567890");
         new WebDriverWait(driver, 10).until(ExpectedConditions.textToBePresentInElementValue(By.name("patient[address_line_2]"), "12345678901234567890987654321234567890"));
         Assert.assertNotEquals(element.getText(), "New Jersey 08330");
-
     }
 
     @And("^Address with code$")
@@ -500,7 +483,7 @@ public class WebsiteStepDefs {
         new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(driver.findElement(By.id("date_of_birth-error"))));
     }
 
-    @And("^gender  empty error text$")
+    @And("^gender empty error text$")
     public void genderEmptyErrorText() {
         driver.findElement(By.id("patient[gender]-error"));
         new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(driver.findElement(By.id("patient[gender]-error"))));
@@ -511,8 +494,9 @@ public class WebsiteStepDefs {
         driver.findElement(By.cssSelector("#onBoardForm > div:nth-child(2) > div:nth-child(5) > div > div > div > div:nth-child(2) > div > label.error-phone-number"));
         new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector("#onBoardForm > div:nth-child(2) > div:nth-child(5) > div > div > div > div:nth-child(2) > div > label.error-phone-number"))));
     }
-    @And("^firstname, lastname empty error text$")
-    public void firstnameLastnameEmptyErrorText() {
+
+    @And("^first name, last name empty error text$")
+    public void firstNameLastNameEmptyErrorText() {
         driver.findElement(By.id("first_name-error"));
         new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(driver.findElement(By.id("first_name-error"))));
         driver.findElement(By.id("last_name-error"));
@@ -563,136 +547,88 @@ public class WebsiteStepDefs {
 //KASTRIOTI----------------------------------------===================================================================================================================
 
 
-
-
-
-
-
-
-        @When("^Logout$") //Klikojme tek Edit profile
-        public void Logout() throws InterruptedException {
+    @When("^Logout$") //Klikojme tek Edit profile
+    public void Logout() throws InterruptedException {
 //       Thread.sleep(2222);
 //       driver.findElement(By.cssSelector("#navbarDropdown")).submit();
 //      WebElement element = driver.findElement(By.cssSelector("#navbarVianova > ul.navbar-right > li.profile.show > div > a:nth-child(1)"));
 //      element.submit();
 //        new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOf(element));
-            WebElement element = driver.findElement(By.cssSelector("#navbarVianova > ul.navbar-right > li:nth-child(1) > a"));
-            element.click();
-            Thread.sleep(2111);
+        WebElement element = driver.findElement(By.cssSelector("#navbarVianova > ul.navbar-right > li:nth-child(1) > a"));
+        element.click();
+        Thread.sleep(2111);
 
-        }
-
-        @When("^User View the FirstPage and Click Edit Profile$")
-        public void userViewTheFirstPageAndClickEditProfile() throws InterruptedException {
-            driver.findElement(By.cssSelector("#navbarDropdown")).click();
-            Assert.assertEquals(driver.getCurrentUrl(), "https://nj-staging.vianovahealth.com/patients?status=active");
-            Thread.sleep(2000);
-        }
-
-        @And("^ClickEditProfile$")
-        public void clickeditprofile() throws InterruptedException {
-            driver.findElement(By.cssSelector("#navbarVianova > ul.navbar-right > li.profile.show > div > a:nth-child(1)")).click();
-            Assert.assertEquals(driver.getCurrentUrl(), "https://nj-staging.vianovahealth.com/users/33/edit");
-        }
-
-        @When("^User Click Edit Profiles and ClearData$") //Scnario User Click Edit Profiles and ClearData
-        public void userClickEditProfilesAndClearData() throws InterruptedException {
-
-            driver.findElement(By.name("first_name")).clear();
-            driver.findElement(By.id("last_name")).clear();
-            driver.findElement(By.name("address_line_1")).clear();
-            driver.findElement(By.name("address_line_2")).clear();
-            driver.findElement(By.name("apt_suite")).clear();
-            driver.findElement(By.name("phone_types[0][phone_number]")).clear();
-            driver.findElement(By.name("email")).clear();
-            driver.findElement(By.name("location")).clear();
-            driver.findElement(By.name("client")).clear();
-            driver.findElement(By.cssSelector("#app > section > form > div.container.m-t-30 > div:nth-child(4) > div > div > div > div > div:nth-child(3) > div > a > img")).click();
-            driver.findElement(By.cssSelector("#app > section > form > div.container.m-t-30 > div:nth-child(4) > div > div > div:nth-child(2) > div > div:nth-child(3) > div > a:nth-child(2) > span > i")).click();
-            Thread.sleep(2000);
-            new WebDriverWait(driver, 20).until(ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("div"), 10));
-            driver.findElement(By.name("speciality_training")).click();
-            Thread.sleep(1000);
-            //Shtimi i te dhenave
-            driver.findElement(By.name("first_name")).sendKeys("Time");
-            driver.findElement(By.id("last_name")).sendKeys("Frame");
-            driver.findElement(By.name("address_line_1")).sendKeys("Agim Ramadani pn 1a");
-            driver.findElement(By.name("address_line_2")).sendKeys("-");
-            driver.findElement(By.name("apt_suite")).sendKeys("-");
-            driver.findElement(By.name("city")).sendKeys("Prishtinaa");
-            driver.findElement(By.name("zip_code")).sendKeys("1234");
-            driver.findElement(By.name("phone_types[0][phone_number]")).sendKeys("(386) 495-2517");
-            //1.04.2019
-
-            driver.findElement(By.cssSelector("#app > section > form > div.container.m-t-30 > div:nth-child(5) > div > div > input")).sendKeys("tframe@vh.com"); // Vendosja  e Primaey email
-            driver.findElement(By.cssSelector("#app > section > form > div.container.m-t-30 > div:nth-child(6) > div:nth-child(1) > div > input")).clear();
-            driver.findElement(By.cssSelector("#app > section > form > div.container.m-t-30 > div:nth-child(6) > div:nth-child(1) > div > input")).sendKeys("Pirshtine");
-            driver.findElement(By.cssSelector("#app > section > form > div.container.m-t-30 > div:nth-child(6) > div:nth-child(2) > div > input")).clear();
-            driver.findElement(By.cssSelector("#app > section > form > div.container.m-t-30 > div:nth-child(6) > div:nth-child(2) > div > input")).sendKeys("Kastriot");
-            //Do te vendosim nje vertetim qe na tregon se deri me tani kemi punuar me sukese pasi qe faqja do te pesoj ndyshime
-            Assert.assertEquals(driver.getCurrentUrl(), "https://nj-staging.vianovahealth.com/users/33/edit");
-            //Butoni Cancel tek Edit profile dhe largimit
-            driver.findElement(By.cssSelector("#app > section > form > div.container.m-t-100.m-b-50 > div > div:nth-child(2) > a")).click();
-            Assert.assertEquals(driver.getCurrentUrl(), "https://nj-staging.vianovahealth.com/patients?status=active");
-
-            Thread.sleep(2000);
-            new WebDriverWait(driver, 20).until(ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("div"), 10));
-
-
-            Thread.sleep(2111);
-        }
-
-
-        @And("^ClickEditProfilePassword$")
-        public void clickeditprofilepassword() throws InterruptedException {
-//        driver.findElement(By.cssSelector("#navbarDropdown")).click();
-
-            Thread.sleep(1111);
-        }
-
-        @And("^ChangePassword$")
-        public void changepassword() throws InterruptedException {
-            driver.findElement(By.cssSelector("#navbarVianova > ul.navbar-right > li.profile.show > div > a:nth-child(2)")).click();
-            driver.findElement(By.name("current-password")).sendKeys("blakaj123");
-            new WebDriverWait(driver, 10).until(ExpectedConditions.textToBePresentInElementValue(By.name("current-password"), "blakaj123"));
-
-            //Vendosja e passwordit te ri
-            driver.findElement(By.id("new-password")).sendKeys("blakaj123");
-            //Confirm new Password
-            String pw = "blakaj123";
-            if ("blakaj123" == pw) {
-                driver.findElement(By.id("new-password-confirm")).sendKeys(pw);
-            }
-
-            new WebDriverWait(driver, 20).until(ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("div"), 10));
-            Assert.assertEquals(driver.getCurrentUrl(), "https://nj-staging.vianovahealth.com/user/change-password");
-
-        }
-
-// new WebDriverWait(driver,10).until(ExpectedConditions.textToBePresentInElementValue(By.id("cell_phone"),"(609) 345-2487"));
-// new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(By.id("emergency_contact_send_text_message")));
-
-
-    //========================================================================================
-    @And("^The next step that gets repeated before every test$")
-    public void theNextStepThatGetsRepeatedBeforeEveryTest() throws Throwable {
     }
 
-    @When("^The step that the test is created for is executed in the when step$")
-    public void theStepThatTheTestIsCreatedForIsExecutedInTheWhenStep() throws Throwable {
+    @When("^User View the FirstPage and Click Edit Profile$")
+    public void userViewTheFirstPageAndClickEditProfile() throws InterruptedException {
+        driver.findElement(By.cssSelector("#navbarDropdown")).click();
+        Assert.assertEquals(driver.getCurrentUrl(), "https://nj-staging.vianovahealth.com/patients?status=active");
+        Thread.sleep(2000);
     }
 
-    @Then("^The assertion that the test has passed and worked fine$")
-    public void theAssertionThatTheTestHasPassedAndWorkedFine() throws Throwable {
+    @And("^ClickEditProfile$")
+    public void clickeditprofile() {
+        driver.findElement(By.cssSelector("#navbarVianova > ul.navbar-right > li.profile.show > div > a:nth-child(1)")).click();
+        Assert.assertEquals(driver.getCurrentUrl(), "https://nj-staging.vianovahealth.com/users/33/edit");
+    }
+
+    @When("^User Click Edit Profiles and ClearData$") //Scnario User Click Edit Profiles and ClearData
+    public void userClickEditProfilesAndClearData() throws InterruptedException {
+        driver.findElement(By.name("first_name")).clear();
+        driver.findElement(By.id("last_name")).clear();
+        driver.findElement(By.name("address_line_1")).clear();
+        driver.findElement(By.name("address_line_2")).clear();
+        driver.findElement(By.name("apt_suite")).clear();
+        driver.findElement(By.name("phone_types[0][phone_number]")).clear();
+        driver.findElement(By.name("email")).clear();
+        driver.findElement(By.name("location")).clear();
+        driver.findElement(By.name("client")).clear();
+        driver.findElement(By.cssSelector("#app > section > form > div.container.m-t-30 > div:nth-child(4) > div > div > div > div > div:nth-child(3) > div > a > img")).click();
+        driver.findElement(By.cssSelector("#app > section > form > div.container.m-t-30 > div:nth-child(4) > div > div > div:nth-child(2) > div > div:nth-child(3) > div > a:nth-child(2) > span > i")).click();
+        Thread.sleep(2000);
+        new WebDriverWait(driver, 20).until(ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("div"), 10));
+        driver.findElement(By.name("speciality_training")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.name("first_name")).sendKeys("Time");
+        driver.findElement(By.id("last_name")).sendKeys("Frame");
+        driver.findElement(By.name("address_line_1")).sendKeys("Agim Ramadani pn 1a");
+        driver.findElement(By.name("address_line_2")).sendKeys("-");
+        driver.findElement(By.name("apt_suite")).sendKeys("-");
+        driver.findElement(By.name("city")).sendKeys("Prishtinaa");
+        driver.findElement(By.name("zip_code")).sendKeys("1234");
+        driver.findElement(By.name("phone_types[0][phone_number]")).sendKeys("(386) 495-2517");
+        driver.findElement(By.cssSelector("#app > section > form > div.container.m-t-30 > div:nth-child(5) > div > div > input")).sendKeys("tframe@vh.com"); // Vendosja  e Primaey email
+        driver.findElement(By.cssSelector("#app > section > form > div.container.m-t-30 > div:nth-child(6) > div:nth-child(1) > div > input")).clear();
+        driver.findElement(By.cssSelector("#app > section > form > div.container.m-t-30 > div:nth-child(6) > div:nth-child(1) > div > input")).sendKeys("Pirshtine");
+        driver.findElement(By.cssSelector("#app > section > form > div.container.m-t-30 > div:nth-child(6) > div:nth-child(2) > div > input")).clear();
+        driver.findElement(By.cssSelector("#app > section > form > div.container.m-t-30 > div:nth-child(6) > div:nth-child(2) > div > input")).sendKeys("Kastriot");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://nj-staging.vianovahealth.com/users/33/edit");
+        driver.findElement(By.cssSelector("#app > section > form > div.container.m-t-100.m-b-50 > div > div:nth-child(2) > a")).click();
+        Assert.assertEquals(driver.getCurrentUrl(), "https://nj-staging.vianovahealth.com/patients?status=active");
+        Thread.sleep(2000);
+        new WebDriverWait(driver, 20).until(ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("div"), 10));
+        Thread.sleep(2111);
+    }
+
+
+    @And("^ChangePassword$")
+    public void changePassword() {
+        driver.findElement(By.cssSelector("#navbarVianova > ul.navbar-right > li.profile.show > div > a:nth-child(2)")).click();
+        driver.findElement(By.name("current-password")).sendKeys("blakaj123");
+        new WebDriverWait(driver, 10).until(ExpectedConditions.textToBePresentInElementValue(By.name("current-password"), "blakaj123"));
+        driver.findElement(By.id("new-password")).sendKeys("blakaj123");
+        String pw = "blakaj123";
+        driver.findElement(By.id("new-password-confirm")).sendKeys(pw);
+        new WebDriverWait(driver, 20).until(ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("div"), 10));
+        Assert.assertEquals(driver.getCurrentUrl(), "https://nj-staging.vianovahealth.com/user/change-password");
     }
 
 
     @After
     public void tearDown() {
         driver.quit();
-//        driver.close();
     }
-
 
 
 }
