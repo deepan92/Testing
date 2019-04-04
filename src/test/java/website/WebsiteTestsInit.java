@@ -14,18 +14,18 @@ import stepdefs.CommonStepObjects;
 
         features = "src/test/java/website",
         format = {"pretty", "html:cucumber-html-reports",
-                "json: cucumber-html-reports/cucumber.json"},
+                "json:cucumber-html-reports/cucumber.json"},
         glue = "stepdefs")
 
 public class WebsiteTestsInit {
 
 //    @Before
-//    public static void InitilizeTests() {
+//    public static void setUp() {
 //        CommonStepObjects.setWebDriver(WebDriverFactory.getInstance().getWebDriver());
 //    }
 //
 //    @After
-//    public static void TearDown() {
+//    public static void tearDown() {
 //        CommonStepObjects.closeDriver();
 //    }
 }

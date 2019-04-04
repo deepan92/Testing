@@ -24,7 +24,6 @@ public class LogInStepDefinition {
         driver.manage().window().fullscreen();
         driver.navigate().to("https://nj-staging.vianovahealth.com/login");
         new WebDriverWait(driver, 20).until(ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("div"), 10));
-
     }
 
     @After
