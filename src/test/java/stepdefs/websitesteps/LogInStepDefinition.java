@@ -1,6 +1,5 @@
 package stepdefs.websitesteps;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
@@ -36,6 +35,8 @@ public class LogInStepDefinition {
     public void userTypesWrongEmail(String email) {
         WebElement element = driver.findElement(By.name("email"));
         element.sendKeys(email);
+        new WebDriverWait(driver, 20).until(ExpectedConditions.textToBePresentInElementValue(element, email));
+        Assert.assertEquals(element.getAttribute("value"), email);
     }
 
 
@@ -43,6 +44,8 @@ public class LogInStepDefinition {
     public void userTypesCorrectPassword(String password) {
         WebElement element = driver.findElement(By.name("password"));
         element.sendKeys(password);
+        new WebDriverWait(driver, 20).until(ExpectedConditions.textToBePresentInElementValue(element, password));
+        Assert.assertEquals(element.getAttribute("value"), password);
     }
 
     @And("^Click Log In button$")
@@ -60,7 +63,7 @@ public class LogInStepDefinition {
 
 
     @Then("^The user should be logged in \"([^\"]*)\"$")
-    public void theUserShouldBeLoggedIn(String url) {
+    public void theUserShouldBeLoggedIn(String url){
         new WebDriverWait(driver, 20).until(ExpectedConditions.urlToBe(url));
         Assert.assertEquals(driver.getCurrentUrl(), "https://nj-staging.vianovahealth.com/patients?status=active");
     }
