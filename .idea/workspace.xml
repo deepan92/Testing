@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb111353-c291-4eca-bd4c-d8e8e49453d1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/cucumber-html-reports/report.js" beforeDir="false" afterPath="$PROJECT_DIR$/cucumber-html-reports/report.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ cucumber-html-reports/cucumber.json" beforeDir="false" afterPath="$PROJECT_DIR$/ cucumber-html-reports/cucumber.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepdefs/websitesteps/LogInStepDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepdefs/websitesteps/LogInStepDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/stepdefs/websitesteps/WebsiteStepDefs.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,23 +17,21 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/website/RandomTest.feature">
+        <entry file="file://$PROJECT_DIR$/src/test/java/website/LogInTests.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="172" column="16" selection-start-line="172" selection-start-column="16" selection-end-line="172" selection-end-column="16" />
+            <state relative-caret-position="225">
+              <caret line="15" column="8" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/stepdefs/websitesteps/WebsiteStepDefs.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/stepdefs/websitesteps/LogInStepDefinition.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="534">
-              <caret line="636" lean-forward="true" selection-start-line="636" selection-end-line="636" />
+            <state relative-caret-position="616">
+              <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#54720#54721#0" expanded="true" />
-                <element signature="e#54749#54750#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -53,8 +54,9 @@
         <option value="$PROJECT_DIR$/src/main/java/pageobjects/pages/PageObjects.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/website/WebsiteTestsInit.java" />
-        <option value="$PROJECT_DIR$/src/test/java/website/RandomTest.feature" />
         <option value="$PROJECT_DIR$/src/test/java/stepdefs/websitesteps/WebsiteStepDefs.java" />
+        <option value="$PROJECT_DIR$/src/test/java/website/RandomTest.feature" />
+        <option value="$PROJECT_DIR$/src/test/java/stepdefs/websitesteps/LogInStepDefinition.java" />
       </list>
     </option>
   </component>
@@ -75,7 +77,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -86,20 +87,12 @@
             <path>
               <item name="my-temp" type="b2602c69:ProjectViewProjectNode" />
               <item name="vianova-test" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cucumber-html-reports" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="my-temp" type="b2602c69:ProjectViewProjectNode" />
               <item name="vianova-test" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="my-temp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vianova-test" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="my-temp" type="b2602c69:ProjectViewProjectNode" />
@@ -139,15 +132,21 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="website" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="my-temp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vianova-test" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554204448708" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554382103285" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -166,27 +165,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.WebsiteTestsInit">
-    <configuration name="Feature: RandomTest" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home" />
-      <option name="CUCUMBER_CORE_VERSION" value="1.2" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/website/RandomTest.feature" />
-      <option name="GLUE" value="stepdefs.websitesteps" />
-      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
-      <module name="my-temp" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome" />
-      <option name="SUGGESTED_NAME" value="Feature: RandomTest" />
-      <option name="VM_PARAMETERS" value="-ea -DwebsiteBrowser=chrome -DwebsiteUrl=http://nj-staging.vianovahealth.com" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cucumber.api.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Cucumber java.Scenario: Try to log in with correct email and password">
     <configuration name="Scenario: Add Patient Disabilities" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home" />
       <option name="CUCUMBER_CORE_VERSION" value="1.2" />
@@ -208,16 +187,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Phone number empty error" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Try to log in with correct email and password" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home" />
       <option name="CUCUMBER_CORE_VERSION" value="1.2" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/website/RandomTest.feature" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/website/LogInTests.feature" />
       <option name="GLUE" value="stepdefs.websitesteps" />
       <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
       <module name="my-temp" />
-      <option name="NAME_FILTER" value="^Phone number empty error$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome --name &quot;^Phone number empty error$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Phone number empty error" />
+      <option name="NAME_FILTER" value="^Try to log in with correct email and password$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome --name &quot;^Try to log in with correct email and password$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Try to log in with correct email and password" />
       <option name="VM_PARAMETERS" value="-ea -DwebsiteBrowser=chrome -DwebsiteUrl=http://nj-staging.vianovahealth.com" />
       <extension name="coverage">
         <pattern>
@@ -229,16 +208,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: The actual test" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Try to log in with invalid email" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home" />
       <option name="CUCUMBER_CORE_VERSION" value="1.2" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/website/RandomTest.feature" />
       <option name="GLUE" value="stepdefs.websitesteps" />
       <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
       <module name="my-temp" />
-      <option name="NAME_FILTER" value="^The actual test$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome --name &quot;^The actual test$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: The actual test" />
+      <option name="NAME_FILTER" value="^Try to log in with invalid email$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome --name &quot;^Try to log in with invalid email$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Try to log in with invalid email" />
+      <option name="VM_PARAMETERS" value="-ea -DwebsiteBrowser=chrome -DwebsiteUrl=http://nj-staging.vianovahealth.com" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cucumber.api.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Try to log in with wrong email" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home" />
+      <option name="CUCUMBER_CORE_VERSION" value="1.2" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/website/RandomTest.feature" />
+      <option name="GLUE" value="stepdefs.websitesteps" />
+      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
+      <module name="my-temp" />
+      <option name="NAME_FILTER" value="^Try to log in with wrong email$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome --name &quot;^Try to log in with wrong email$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Try to log in with wrong email" />
       <option name="VM_PARAMETERS" value="-ea -DwebsiteBrowser=chrome -DwebsiteUrl=http://nj-staging.vianovahealth.com" />
       <extension name="coverage">
         <pattern>
@@ -272,19 +272,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Cucumber java.Feature: RandomTest" />
-      <item itemvalue="Cucumber java.Scenario: Phone number empty error" />
-      <item itemvalue="Cucumber java.Scenario: The actual test" />
-      <item itemvalue="JUnit.WebsiteTestsInit" />
       <item itemvalue="Cucumber java.Scenario: Add Patient Disabilities" />
+      <item itemvalue="JUnit.WebsiteTestsInit" />
+      <item itemvalue="Cucumber java.Scenario: Try to log in with wrong email" />
+      <item itemvalue="Cucumber java.Scenario: Try to log in with invalid email" />
+      <item itemvalue="Cucumber java.Scenario: Try to log in with correct email and password" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Cucumber java.Scenario: Try to log in with correct email and password" />
         <item itemvalue="JUnit.WebsiteTestsInit" />
+        <item itemvalue="Cucumber java.Scenario: Try to log in with invalid email" />
+        <item itemvalue="Cucumber java.Scenario: Try to log in with wrong email" />
         <item itemvalue="Cucumber java.Scenario: Add Patient Disabilities" />
-        <item itemvalue="Cucumber java.Scenario: The actual test" />
-        <item itemvalue="Cucumber java.Feature: RandomTest" />
-        <item itemvalue="Cucumber java.Scenario: Phone number empty error" />
       </list>
     </recent_temporary>
   </component>
@@ -302,35 +302,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="WebsiteTestsInit - 2019.04.02 at 10h 39m 32s.xml">
+    <history-entry file="WebsiteTestsInit - 2019.04.04 at 13h 18m 21s.xml">
       <configuration name="WebsiteTestsInit" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WebsiteTestsInit - 2019.04.02 at 10h 39m 51s.xml">
+    <history-entry file="WebsiteTestsInit - 2019.04.04 at 13h 18m 55s.xml">
       <configuration name="WebsiteTestsInit" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WebsiteTestsInit - 2019.04.02 at 10h 40m 01s.xml">
+    <history-entry file="Scenario__Try_to_log_in_with_invalid_email - 2019.04.04 at 13h 23m 36s.xml">
+      <configuration name="Scenario: Try to log in with invalid email" configurationId="CucumberJavaRunConfigurationType" />
+    </history-entry>
+    <history-entry file="WebsiteTestsInit - 2019.04.04 at 13h 26m 50s.xml">
       <configuration name="WebsiteTestsInit" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WebsiteTestsInit - 2019.04.02 at 10h 40m 11s.xml">
+    <history-entry file="WebsiteTestsInit - 2019.04.04 at 13h 28m 30s.xml">
       <configuration name="WebsiteTestsInit" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WebsiteTestsInit - 2019.04.02 at 10h 40m 21s.xml">
+    <history-entry file="WebsiteTestsInit - 2019.04.04 at 13h 30m 06s.xml">
       <configuration name="WebsiteTestsInit" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WebsiteTestsInit - 2019.04.02 at 10h 40m 28s.xml">
+    <history-entry file="WebsiteTestsInit - 2019.04.04 at 13h 30m 57s.xml">
       <configuration name="WebsiteTestsInit" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WebsiteTestsInit - 2019.04.02 at 10h 41m 43s.xml">
-      <configuration name="WebsiteTestsInit" configurationId="JUnit" />
+    <history-entry file="Scenario__Try_to_log_in_with_correct_email_and_password - 2019.04.04 at 13h 37m 14s.xml">
+      <configuration name="Scenario: Try to log in with correct email and password" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
-    <history-entry file="WebsiteTestsInit - 2019.04.02 at 10h 44m 26s.xml">
-      <configuration name="WebsiteTestsInit" configurationId="JUnit" />
+    <history-entry file="Scenario__Try_to_log_in_with_correct_email_and_password - 2019.04.04 at 13h 38m 04s.xml">
+      <configuration name="Scenario: Try to log in with correct email and password" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
-    <history-entry file="WebsiteTestsInit - 2019.04.02 at 10h 59m 18s.xml">
-      <configuration name="WebsiteTestsInit" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Scenario__Add_Patient_Disabilities - 2019.04.02 at 11h 01m 35s.xml">
-      <configuration name="Scenario: Add Patient Disabilities" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="Scenario__Try_to_log_in_with_correct_email_and_password - 2019.04.04 at 13h 39m 14s.xml">
+      <configuration name="Scenario: Try to log in with correct email and password" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -345,7 +345,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27848774" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28381255" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -354,12 +354,12 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33564356" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33564356" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32970297" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.23960397" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32970297" />
@@ -374,13 +374,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/pageobjects/pages/PageObjects.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pageobjects/pages/SpecificPageElements.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -419,18 +412,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/stepdefs/CommonStepObjects.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1236#1237#0" expanded="true" />
-            <element signature="e#1266#1267#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pageobjects/PageElementIds.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -445,31 +426,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pageobjects/pages/PageObjectUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1169">
+          <caret line="43" column="93" selection-start-line="43" selection-start-column="89" selection-end-line="43" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pageobjects/pages/PageObjects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="27" column="29" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/generalUtils/Randomizer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/website/WebsiteTestsInit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="21" selection-end-line="30" />
+        <state relative-caret-position="300">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/website/RandomTest.feature">
+    <entry file="file://$PROJECT_DIR$/src/test/java/stepdefs/CommonStepObjects.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="172" column="16" selection-start-line="172" selection-start-column="16" selection-end-line="172" selection-end-column="16" />
+        <state relative-caret-position="278">
+          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1236#1237#0" expanded="true" />
+            <element signature="e#1266#1267#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/stepdefs/websitesteps/WebsiteStepDefs.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/website/LogInTests.feature">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="636" lean-forward="true" selection-start-line="636" selection-end-line="636" />
+        <state relative-caret-position="225">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/stepdefs/websitesteps/LogInStepDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#54720#54721#0" expanded="true" />
-            <element signature="e#54749#54750#0" expanded="true" />
           </folding>
         </state>
       </provider>
