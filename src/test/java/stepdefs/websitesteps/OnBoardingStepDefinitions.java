@@ -1,5 +1,6 @@
 package stepdefs.websitesteps;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
@@ -39,5 +40,12 @@ public class OnBoardingStepDefinitions {
         Thread.sleep(3000);
         WebElement element = driver.findElement(By.cssSelector("select[name='status'] > option[value=" + value + "]"));
         element.click();
+    }
+
+    @And("^User types first_name\"([^\"]*)\"$")
+    public void UserTypesFirst_name(String first_name) throws Exception{
+        Thread.sleep(3000);
+        WebElement element =driver.findElement(By.id("first_name"));
+        element.sendKeys(first_name);
     }
 }
