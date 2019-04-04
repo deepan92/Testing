@@ -63,9 +63,7 @@ public class LogInStepDefinition {
 
 
     @Then("^The user should be logged in \"([^\"]*)\"$")
-    public void theUserShouldBeLoggedIn(String url) throws Exception {
-        driver.findElement(By.cssSelector("[name='status']> option[value='unreachable']")).click();
-        Thread.sleep(3000);
+    public void theUserShouldBeLoggedIn(String url){
         new WebDriverWait(driver, 20).until(ExpectedConditions.urlToBe(url));
         Assert.assertEquals(driver.getCurrentUrl(), "https://nj-staging.vianovahealth.com/patients?status=active");
     }

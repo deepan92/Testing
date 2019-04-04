@@ -7,11 +7,11 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 6221574975,
+  "duration": 7180082426,
   "status": "passed"
 });
 formatter.before({
-  "duration": 7239472790,
+  "duration": 4824678118,
   "status": "passed"
 });
 formatter.scenario({
@@ -52,7 +52,7 @@ formatter.match({
   "location": "LogInStepDefinition.userTypesWrongEmail(String)"
 });
 formatter.result({
-  "duration": 192184461,
+  "duration": 473609287,
   "status": "passed"
 });
 formatter.match({
@@ -65,14 +65,14 @@ formatter.match({
   "location": "LogInStepDefinition.userTypesCorrectPassword(String)"
 });
 formatter.result({
-  "duration": 54567263,
+  "duration": 83263108,
   "status": "passed"
 });
 formatter.match({
   "location": "LogInStepDefinition.clickLogInButton()"
 });
 formatter.result({
-  "duration": 805903358,
+  "duration": 1058371520,
   "status": "passed"
 });
 formatter.match({
@@ -85,23 +85,23 @@ formatter.match({
   "location": "LogInStepDefinition.theShouldBeShown(String)"
 });
 formatter.result({
-  "duration": 26712200,
+  "duration": 25228541,
   "status": "passed"
 });
 formatter.after({
-  "duration": 126825259,
+  "duration": 84024542,
   "status": "passed"
 });
 formatter.after({
-  "duration": 81227151,
+  "duration": 121731640,
   "status": "passed"
 });
 formatter.before({
-  "duration": 4776323885,
+  "duration": 6752619888,
   "status": "passed"
 });
 formatter.before({
-  "duration": 6322283185,
+  "duration": 4424557923,
   "status": "passed"
 });
 formatter.scenario({
@@ -142,7 +142,7 @@ formatter.match({
   "location": "LogInStepDefinition.userTypesWrongEmail(String)"
 });
 formatter.result({
-  "duration": 109260256,
+  "duration": 311855168,
   "status": "passed"
 });
 formatter.match({
@@ -155,14 +155,14 @@ formatter.match({
   "location": "LogInStepDefinition.userTypesCorrectPassword(String)"
 });
 formatter.result({
-  "duration": 84324203,
+  "duration": 92813796,
   "status": "passed"
 });
 formatter.match({
   "location": "LogInStepDefinition.clickLogInButton()"
 });
 formatter.result({
-  "duration": 777085361,
+  "duration": 1221282585,
   "status": "passed"
 });
 formatter.match({
@@ -175,23 +175,23 @@ formatter.match({
   "location": "LogInStepDefinition.theShouldBeShown(String)"
 });
 formatter.result({
-  "duration": 27605006,
+  "duration": 25923783,
   "status": "passed"
 });
 formatter.after({
-  "duration": 79977541,
+  "duration": 95469863,
   "status": "passed"
 });
 formatter.after({
-  "duration": 144246963,
+  "duration": 82343243,
   "status": "passed"
 });
 formatter.before({
-  "duration": 4021917165,
+  "duration": 6823923967,
   "status": "passed"
 });
 formatter.before({
-  "duration": 9135903463,
+  "duration": 5035809572,
   "status": "passed"
 });
 formatter.scenario({
@@ -232,7 +232,7 @@ formatter.match({
   "location": "LogInStepDefinition.userTypesWrongEmail(String)"
 });
 formatter.result({
-  "duration": 127462249,
+  "duration": 307043307,
   "status": "passed"
 });
 formatter.match({
@@ -245,14 +245,14 @@ formatter.match({
   "location": "LogInStepDefinition.userTypesCorrectPassword(String)"
 });
 formatter.result({
-  "duration": 62938723,
+  "duration": 75008543,
   "status": "passed"
 });
 formatter.match({
   "location": "LogInStepDefinition.clickLogInButton()"
 });
 formatter.result({
-  "duration": 2011914910,
+  "duration": 1626451267,
   "status": "passed"
 });
 formatter.match({
@@ -265,23 +265,23 @@ formatter.match({
   "location": "LogInStepDefinition.theUserShouldBeLoggedIn(String)"
 });
 formatter.result({
-  "duration": 14748027,
+  "duration": 10715636,
   "status": "passed"
 });
 formatter.after({
-  "duration": 137874595,
+  "duration": 86626982,
   "status": "passed"
 });
 formatter.after({
-  "duration": 164094589,
+  "duration": 83387280,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5320534345,
+  "duration": 7259132001,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5862670905,
+  "duration": 5133460563,
   "status": "passed"
 });
 formatter.scenario({
@@ -322,7 +322,7 @@ formatter.match({
   "location": "LogInStepDefinition.userTypesWrongEmail(String)"
 });
 formatter.result({
-  "duration": 192621912,
+  "duration": 219751008,
   "status": "passed"
 });
 formatter.match({
@@ -335,14 +335,14 @@ formatter.match({
   "location": "LogInStepDefinition.userTypesCorrectPassword(String)"
 });
 formatter.result({
-  "duration": 83903770,
+  "duration": 85369818,
   "status": "passed"
 });
 formatter.match({
   "location": "LogInStepDefinition.clickLogInButton()"
 });
 formatter.result({
-  "duration": 734718048,
+  "duration": 759901964,
   "status": "passed"
 });
 formatter.match({
@@ -355,15 +355,15 @@ formatter.match({
   "location": "LogInStepDefinition.theShouldBeShown(String)"
 });
 formatter.result({
-  "duration": 25728163,
+  "duration": 31937184,
   "status": "passed"
 });
 formatter.after({
-  "duration": 128614049,
+  "duration": 80192627,
   "status": "passed"
 });
 formatter.after({
-  "duration": 84741575,
+  "duration": 238201850,
   "status": "passed"
 });
 formatter.uri("OnBoarding.feature");
@@ -375,11 +375,11 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 4357537386,
+  "duration": 6446751331,
   "status": "passed"
 });
 formatter.before({
-  "duration": 6355768224,
+  "duration": 4474489360,
   "status": "passed"
 });
 formatter.scenario({
@@ -405,15 +405,15 @@ formatter.match({
   "location": "OnBoardingStepDefinitions.filterBy(String)"
 });
 formatter.result({
-  "duration": 3475439709,
+  "duration": 3461469823,
   "status": "passed"
 });
 formatter.after({
-  "duration": 156245760,
+  "duration": 85226897,
   "status": "passed"
 });
 formatter.after({
-  "duration": 108412487,
+  "duration": 79286750,
   "status": "passed"
 });
 });

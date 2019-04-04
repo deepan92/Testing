@@ -6,20 +6,20 @@
         "before": [
           {
             "result": {
-              "duration": 6221574975,
-              "status": "passed"
-            },
-            "match": {
-              "location": "LogInStepDefinition.setUp()"
-            }
-          },
-          {
-            "result": {
-              "duration": 7239472790,
+              "duration": 7180082426,
               "status": "passed"
             },
             "match": {
               "location": "OnBoardingStepDefinitions.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 4824678118,
+              "status": "passed"
+            },
+            "match": {
+              "location": "LogInStepDefinition.setUp()"
             }
           }
         ],
@@ -30,20 +30,20 @@
         "after": [
           {
             "result": {
-              "duration": 126825259,
-              "status": "passed"
-            },
-            "match": {
-              "location": "LogInStepDefinition.tearDown()"
-            }
-          },
-          {
-            "result": {
-              "duration": 81227151,
+              "duration": 84024542,
               "status": "passed"
             },
             "match": {
               "location": "OnBoardingStepDefinitions.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "duration": 121731640,
+              "status": "passed"
+            },
+            "match": {
+              "location": "LogInStepDefinition.tearDown()"
             }
           }
         ],
@@ -52,7 +52,7 @@
         "steps": [
           {
             "result": {
-              "duration": 192184461,
+              "duration": 473609287,
               "status": "passed"
             },
             "line": 5,
@@ -70,7 +70,7 @@
           },
           {
             "result": {
-              "duration": 54567263,
+              "duration": 83263108,
               "status": "passed"
             },
             "line": 6,
@@ -88,7 +88,7 @@
           },
           {
             "result": {
-              "duration": 805903358,
+              "duration": 1058371520,
               "status": "passed"
             },
             "line": 7,
@@ -100,7 +100,7 @@
           },
           {
             "result": {
-              "duration": 26712200,
+              "duration": 25228541,
               "status": "passed"
             },
             "line": 8,
@@ -122,20 +122,20 @@
         "before": [
           {
             "result": {
-              "duration": 4776323885,
-              "status": "passed"
-            },
-            "match": {
-              "location": "LogInStepDefinition.setUp()"
-            }
-          },
-          {
-            "result": {
-              "duration": 6322283185,
+              "duration": 6752619888,
               "status": "passed"
             },
             "match": {
               "location": "OnBoardingStepDefinitions.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 4424557923,
+              "status": "passed"
+            },
+            "match": {
+              "location": "LogInStepDefinition.setUp()"
             }
           }
         ],
@@ -146,20 +146,20 @@
         "after": [
           {
             "result": {
-              "duration": 79977541,
-              "status": "passed"
-            },
-            "match": {
-              "location": "LogInStepDefinition.tearDown()"
-            }
-          },
-          {
-            "result": {
-              "duration": 144246963,
+              "duration": 95469863,
               "status": "passed"
             },
             "match": {
               "location": "OnBoardingStepDefinitions.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "duration": 82343243,
+              "status": "passed"
+            },
+            "match": {
+              "location": "LogInStepDefinition.tearDown()"
             }
           }
         ],
@@ -168,7 +168,7 @@
         "steps": [
           {
             "result": {
-              "duration": 109260256,
+              "duration": 311855168,
               "status": "passed"
             },
             "line": 11,
@@ -186,7 +186,7 @@
           },
           {
             "result": {
-              "duration": 84324203,
+              "duration": 92813796,
               "status": "passed"
             },
             "line": 12,
@@ -204,7 +204,7 @@
           },
           {
             "result": {
-              "duration": 777085361,
+              "duration": 1221282585,
               "status": "passed"
             },
             "line": 13,
@@ -216,7 +216,7 @@
           },
           {
             "result": {
-              "duration": 27605006,
+              "duration": 25923783,
               "status": "passed"
             },
             "line": 14,
@@ -238,20 +238,20 @@
         "before": [
           {
             "result": {
-              "duration": 4021917165,
-              "status": "passed"
-            },
-            "match": {
-              "location": "LogInStepDefinition.setUp()"
-            }
-          },
-          {
-            "result": {
-              "duration": 9135903463,
+              "duration": 6823923967,
               "status": "passed"
             },
             "match": {
               "location": "OnBoardingStepDefinitions.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 5035809572,
+              "status": "passed"
+            },
+            "match": {
+              "location": "LogInStepDefinition.setUp()"
             }
           }
         ],
@@ -262,20 +262,20 @@
         "after": [
           {
             "result": {
-              "duration": 137874595,
-              "status": "passed"
-            },
-            "match": {
-              "location": "LogInStepDefinition.tearDown()"
-            }
-          },
-          {
-            "result": {
-              "duration": 164094589,
+              "duration": 86626982,
               "status": "passed"
             },
             "match": {
               "location": "OnBoardingStepDefinitions.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "duration": 83387280,
+              "status": "passed"
+            },
+            "match": {
+              "location": "LogInStepDefinition.tearDown()"
             }
           }
         ],
@@ -284,7 +284,7 @@
         "steps": [
           {
             "result": {
-              "duration": 127462249,
+              "duration": 307043307,
               "status": "passed"
             },
             "line": 17,
@@ -302,7 +302,7 @@
           },
           {
             "result": {
-              "duration": 62938723,
+              "duration": 75008543,
               "status": "passed"
             },
             "line": 18,
@@ -320,7 +320,7 @@
           },
           {
             "result": {
-              "duration": 2011914910,
+              "duration": 1626451267,
               "status": "passed"
             },
             "line": 19,
@@ -332,7 +332,7 @@
           },
           {
             "result": {
-              "duration": 14748027,
+              "duration": 10715636,
               "status": "passed"
             },
             "line": 20,
@@ -354,20 +354,20 @@
         "before": [
           {
             "result": {
-              "duration": 5320534345,
-              "status": "passed"
-            },
-            "match": {
-              "location": "LogInStepDefinition.setUp()"
-            }
-          },
-          {
-            "result": {
-              "duration": 5862670905,
+              "duration": 7259132001,
               "status": "passed"
             },
             "match": {
               "location": "OnBoardingStepDefinitions.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 5133460563,
+              "status": "passed"
+            },
+            "match": {
+              "location": "LogInStepDefinition.setUp()"
             }
           }
         ],
@@ -378,20 +378,20 @@
         "after": [
           {
             "result": {
-              "duration": 128614049,
-              "status": "passed"
-            },
-            "match": {
-              "location": "LogInStepDefinition.tearDown()"
-            }
-          },
-          {
-            "result": {
-              "duration": 84741575,
+              "duration": 80192627,
               "status": "passed"
             },
             "match": {
               "location": "OnBoardingStepDefinitions.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "duration": 238201850,
+              "status": "passed"
+            },
+            "match": {
+              "location": "LogInStepDefinition.tearDown()"
             }
           }
         ],
@@ -400,7 +400,7 @@
         "steps": [
           {
             "result": {
-              "duration": 192621912,
+              "duration": 219751008,
               "status": "passed"
             },
             "line": 23,
@@ -418,7 +418,7 @@
           },
           {
             "result": {
-              "duration": 83903770,
+              "duration": 85369818,
               "status": "passed"
             },
             "line": 24,
@@ -436,7 +436,7 @@
           },
           {
             "result": {
-              "duration": 734718048,
+              "duration": 759901964,
               "status": "passed"
             },
             "line": 25,
@@ -448,7 +448,7 @@
           },
           {
             "result": {
-              "duration": 25728163,
+              "duration": 31937184,
               "status": "passed"
             },
             "line": 26,
@@ -480,20 +480,20 @@
         "before": [
           {
             "result": {
-              "duration": 4357537386,
-              "status": "passed"
-            },
-            "match": {
-              "location": "LogInStepDefinition.setUp()"
-            }
-          },
-          {
-            "result": {
-              "duration": 6355768224,
+              "duration": 6446751331,
               "status": "passed"
             },
             "match": {
               "location": "OnBoardingStepDefinitions.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 4474489360,
+              "status": "passed"
+            },
+            "match": {
+              "location": "LogInStepDefinition.setUp()"
             }
           }
         ],
@@ -504,20 +504,20 @@
         "after": [
           {
             "result": {
-              "duration": 156245760,
-              "status": "passed"
-            },
-            "match": {
-              "location": "LogInStepDefinition.tearDown()"
-            }
-          },
-          {
-            "result": {
-              "duration": 108412487,
+              "duration": 85226897,
               "status": "passed"
             },
             "match": {
               "location": "OnBoardingStepDefinitions.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "duration": 79286750,
+              "status": "passed"
+            },
+            "match": {
+              "location": "LogInStepDefinition.tearDown()"
             }
           }
         ],
@@ -526,7 +526,7 @@
         "steps": [
           {
             "result": {
-              "duration": 3475439709,
+              "duration": 3461469823,
               "status": "passed"
             },
             "line": 5,
