@@ -1,4 +1,4 @@
-Feature: Test Class Name
+Feature: Test Log In
   Description of what this feature file will test
 
   Scenario: Try to log in with wrong email

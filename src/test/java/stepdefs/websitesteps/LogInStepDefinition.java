@@ -15,7 +15,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class WebsiteStepDefs {
+public class LogInStepDefinition {
     private WebDriver driver;
 
     @Before
@@ -25,7 +25,6 @@ public class WebsiteStepDefs {
         driver.manage().window().fullscreen();
         driver.navigate().to("https://nj-staging.vianovahealth.com/login");
         new WebDriverWait(driver, 20).until(ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("div"), 10));
-
     }
 
     @After
