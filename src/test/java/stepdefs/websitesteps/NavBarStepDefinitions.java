@@ -1,9 +1,8 @@
 package stepdefs.websitesteps;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.After;
-import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,8 +16,8 @@ public class NavBarStepDefinitions {
     private WebDriver driver;
     private WebElement element;
 
-    @Before
-    public void setUp() {
+    @Given("^Go to website and log in for nav bar$")
+    public void goToWebsiteAndLogInForNavBar() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
         driver = new ChromeDriver();
         driver.manage().window().fullscreen();
@@ -34,41 +33,41 @@ public class NavBarStepDefinitions {
 
     @After
     public void tearDown() {
-        driver.quit();
+        if (driver != null)
+            driver.quit();
     }
 
     @And("^Click EditProfile$")
-    public void clickEditProfile()throws  Exception {
-     element =  driver.findElement(By.id("navbarDropdown"));
-     element.click();
-     Thread.sleep(4000);
+    public void clickEditProfile() throws Exception {
+        element = driver.findElement(By.id("navbarDropdown"));
+        element.click();
+        Thread.sleep(4000);
     }
-
 
 
     @And("^Select Edit Profile : \"([^\"]*)\"$")
     public void selectEditProfile(String value) throws Throwable {
-        element=driver.findElement(By.cssSelector("a[href='"+value+"']"));
+        element = driver.findElement(By.cssSelector("a[href='" + value + "']"));
         element.click();
         Thread.sleep(2000);
         new WebDriverWait(driver, 20).until(ExpectedConditions.urlToBe(value));
-        Assert.assertEquals(driver.getCurrentUrl(),value);
+        Assert.assertEquals(driver.getCurrentUrl(), value);
     }
 
     @And("^Edit FirstName : \"([^\"]*)\"$")
     public void editFirstName(String firstname) throws Throwable {
         element = driver.findElement(By.name("first_name"));
         element.sendKeys(firstname);
-        Assert.assertEquals(firstname,"first_name");
+        Assert.assertEquals(firstname, "first_name");
 
 
     }
 
-    @And("^Edit Lastname  : \"([^\"]*)\"$")
+    @And("^Edit LastName : \"([^\"]*)\"$")
     public void editLastname(String lastname) throws Throwable {
         element = driver.findElement(By.name("last_name"));
         element.sendKeys(lastname);
-        Assert.assertEquals(lastname,"last_name");
+        Assert.assertEquals(lastname, "last_name");
 
     }
 
@@ -76,7 +75,7 @@ public class NavBarStepDefinitions {
     public void editFirstAddress(String firstaddres) throws Throwable {
         element = driver.findElement(By.name("address_line_1"));
         element.sendKeys(firstaddres);
-        Assert.assertEquals(firstaddres,"address_line_1");
+        Assert.assertEquals(firstaddres, "address_line_1");
 
     }
 
@@ -84,7 +83,7 @@ public class NavBarStepDefinitions {
     public void editSecondAddress(String secondaddress) throws Throwable {
         element = driver.findElement(By.name("address_line_2"));
         element.sendKeys(secondaddress);
-        Assert.assertEquals(secondaddress,"address_line_2");
+        Assert.assertEquals(secondaddress, "address_line_2");
 
     }
 
@@ -92,6 +91,8 @@ public class NavBarStepDefinitions {
     public void addAppSuite(String app) throws Throwable {
         element = driver.findElement(By.name("apt_suite"));
         element.sendKeys(app);
-        Assert.assertEquals(app,"apt_suite");
+        Assert.assertEquals(app, "apt_suite");
     }
+
+
 }
