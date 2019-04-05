@@ -1,6 +1,9 @@
 Feature: Test Log In
   Description of what this feature file will test
 
+  Background: Methods to be run before every test
+    Given Go to website
+
   Scenario: Try to log in with wrong email
     When User types email : "wrong@email.com"
     And User types password : "password"
