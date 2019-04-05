@@ -3,6 +3,7 @@ package stepdefs.websitesteps;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
@@ -17,8 +18,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class LogInStepDefinition {
     private WebDriver driver;
 
-    @Before
-    public void setUp() {
+    @Given("^Go to website$")
+    public void goToWebsite() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
         driver = new ChromeDriver();
         driver.manage().window().fullscreen();
@@ -28,7 +29,8 @@ public class LogInStepDefinition {
 
     @After
     public void tearDown() {
-        driver.quit();
+        if (driver != null)
+            driver.quit();
     }
 
     @When("^User types email : \"([^\"]*)\"$")
@@ -63,10 +65,12 @@ public class LogInStepDefinition {
 
 
     @Then("^The user should be logged in \"([^\"]*)\"$")
-    public void theUserShouldBeLoggedIn(String url){
+    public void theUserShouldBeLoggedIn(String url) {
         new WebDriverWait(driver, 20).until(ExpectedConditions.urlToBe(url));
         Assert.assertEquals(driver.getCurrentUrl(), "https://nj-staging.vianovahealth.com/patients?status=active");
     }
+
+
 }
 
 
