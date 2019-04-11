@@ -119,7 +119,7 @@ public class NavBarStepDefinitions {
         element.findElements(By.name("state"));
         element.click();
 
-//        Assert.assertEquals(driver.getCurrentUrl(),value="http://nj-staging.vianovahealth.com/users/33/edit");
+//    Assert.assertEquals(driver.getCurrentUrl(),value="http://nj-staging.vianovahealth.com/users/33/edit");
     }
 
     @And("^select A state : \"([^\"]*)\"$")
@@ -272,14 +272,14 @@ public class NavBarStepDefinitions {
     public void userClickAndSelectFirstResult(String click) throws Throwable {
         element = driver.findElement(By.id(click));
         element.click();
-//        element =driver.findElement(By.className("dismiss-new"));
-        //       element.click(); //Me munngesa
+//    element =driver.findElement(By.className("dismiss-new"));
+        //    element.click(); //Me munngesa
         Thread.sleep(3000);
     }
 
     @And("^User Select button to add Vitals for seven days$")
     public void userSelctButtonToAddVitalsForSevenDays() {
-        element = driver.findElement(By.cssSelector("#control_screen > div.content-background.control-page > div.container.m-t-50 > div > div > div.col-md-1.col-sm-1.col-xs-1 > a")); //Mund  te ndrroj
+        element = driver.findElement(By.cssSelector("#control_screen > div.content-background.control-page > div.container.m-t-50 > div > div > div.col-md-1.col-sm-1.col-xs-1 > a")); //Mund te ndrroj
         element.click();
 
     } //
@@ -311,9 +311,9 @@ public class NavBarStepDefinitions {
 
     @And("^After click a new window is appeared and select a Time of day$")
     public void afterClickANewWindowIsAppeardAndSelctATimeOfDay() throws Exception {
-//        List<WebElement> icons = driver.findElements(By.className("select-custom-style form-control"));
-//        WebElement element=icons.get(2);
-//        element.click();
+//    List<WebElement> icons = driver.findElements(By.className("select-custom-style form-control"));
+//    WebElement element=icons.get(2);
+//    element.click();
         element = driver.findElement(By.cssSelector("#rosie-conversation-modal > div > div > div.modal-body > div > div > form > div > div:nth-child(5) > div > select > option:nth-child(4)"));
         element.click();
 
@@ -388,6 +388,7 @@ public class NavBarStepDefinitions {
         new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.className(smsfield)));
 
     }
+
     @And("^User Click on Communication and fill sent sms field : \"([^\"]*)\"$")
     public void userClickOnComunicationsAndFillSentSmsField(String smsfield) throws Throwable {
         element = driver.findElement(By.cssSelector("#communication_screen > div.content-background.communication-page > div.container.m-t-70.m-b-30 > div.message-holder > textarea"));
@@ -434,17 +435,17 @@ public class NavBarStepDefinitions {
 
     }
 //
-//    @And("^User click on Careplan and edit$ ")
-//    public void userClickOnCareplanAndEdit() {
-//        WebElement element = driver.findElement(By.cssSelector("input[placeholder='Example: 20mg']"));
-//        element.sendKeys("20mg");
-//    }
+//  @And("^User click on Careplan and edit$ ")
+//  public void userClickOnCareplanAndEdit() {
+//    WebElement element = driver.findElement(By.cssSelector("input[placeholder='Example: 20mg']"));
+//    element.sendKeys("20mg");
+//  }
 
     @And("^User click on Care plan and click Add Medication :\"([^\"]*)\"$")
     public void userClickOnCareplanAndClickAddMediction(String addmedication) throws Throwable {
         element = driver.findElement(By.id(addmedication));
         element.click();
-//        new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(By.id(addmedication)));
+//    new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(By.id(addmedication)));
 
 
     }
@@ -452,8 +453,8 @@ public class NavBarStepDefinitions {
 
     @And("^User click on Care plan and click Add Medication name :\"([^\"]*)\"$")
     public void userClickOnCareplnNdClickAddMeciactionName(String medicament_name) throws Throwable {
-//        element = driver.findElement(By.xpath("//*[@id=\"collapseExample\"]/div/form/div/div[1]/div/div"));
-//        element.sendKeys("Flonase");
+//    element = driver.findElement(By.xpath("//*[@id=\"collapseExample\"]/div/form/div/div[1]/div/div"));
+//    element.sendKeys("Flonase");
         Thread.sleep(5000);
         element = driver.findElement(By.cssSelector("input[placeholder='Search Medication Name']"));
         element.sendKeys("Bleron");
@@ -513,7 +514,7 @@ public class NavBarStepDefinitions {
     public void userClickOnCareplanAndClickAddMedictionAndSelect(String arg0) throws Throwable {
         element = driver.findElement(By.cssSelector("#collapseExample > div > form > div > div.container.m-t-30.m-b-50 > div > div:nth-child(1) > button"));
         element.click();
-        //  Assert.assertEquals(driver.getCurrentUrl(),"http://nj-staging.vianovahealth.com/patients/342/care_plans");
+        // Assert.assertEquals(driver.getCurrentUrl(),"http://nj-staging.vianovahealth.com/patients/342/care_plans");
     }
 
     @And("^User click on Care plan and click Add Medication and delete one$")
@@ -528,7 +529,7 @@ public class NavBarStepDefinitions {
     public void userClickOnCareplanAndClickAddMedictionAndAddNewVital(String add_new_vital) throws Throwable {
         element = driver.findElement(By.cssSelector("#addMonitor"));
         element.click();
-        //       new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(element));
+        //    new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(element));
     }
 
     @And("^User click on Care plan and click Add Vital and select name on Vital$")
@@ -577,8 +578,8 @@ public class NavBarStepDefinitions {
     @And("^User click on Care plan and click Add new Alert Rule :\"([^\"]*)\"$")
     public void userClickOnCareplanAndClickAddNewAlertRule(String addalert_rule) throws Throwable {
         driver.findElement(By.id("addAlert")).click();
-//        elemen.click();
-//        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(element));
+//    elemen.click();
+//    new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(element));
 
     }
 
@@ -592,76 +593,76 @@ public class NavBarStepDefinitions {
 
     @And("^User click on Care plan and click Add new Alert Rule set Status$")
     public void userClickOnCareplanAndClickAddNewAlertRuleSetStatus() {
-        element =driver.findElement(By.cssSelector("#collapseDiseaseRule > div > form > div > div:nth-child(1) > div > div:nth-child(2) > div > select > option:nth-child(2)"));
+        element = driver.findElement(By.cssSelector("#collapseDiseaseRule > div > form > div > div:nth-child(1) > div > div:nth-child(2) > div > select > option:nth-child(2)"));
         element.click();
         new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(element));
     }
 
     @And("^User click on Care plan and click Add new Alert Rule set Vital Type$")
     public void userClickOnCareplanAndClickAddNewAlerRuleSetVitalType() {
-        element =driver.findElement(By.cssSelector("#collapseDiseaseRule > div > form > div > div:nth-child(1) > div > div:nth-child(3) > div > select > option:nth-child(2)")) ;
+        element = driver.findElement(By.cssSelector("#collapseDiseaseRule > div > form > div > div:nth-child(1) > div > div:nth-child(3) > div > select > option:nth-child(2)"));
         element.click();
     }
 
     @And("^User click on Care plan and click Add new Alert Rule set From :\"([^\"]*)\"$")
     public void userClickOnCareplanAndClickAddNewAlerRuleSetFrom(String from) throws Throwable {
-     element = driver.findElement(By.cssSelector("input[placeholder='"+from+"']"));
-     element.sendKeys("21");
+        element = driver.findElement(By.cssSelector("input[placeholder='" + from + "']"));
+        element.sendKeys("21");
     }
 
     @And("^User click on Care plan and click Add new Alert Rule set TO :\"([^\"]*)\"$")
     public void userClickOnCareplanAndClickAddNewAlerRuleSetTO(String to) throws Throwable {
-        element = driver.findElement(By.cssSelector("input[placeholder='"+to+"']"));
+        element = driver.findElement(By.cssSelector("input[placeholder='" + to + "']"));
         element.sendKeys("21");
     }
 
     @And("^User click on Care plan and click Add new Alert Rule set message :\"([^\"]*)\"$")
     public void userClickOnCareplanAndClickAddNewAlerRuleSetMessage(String arg0) throws Throwable {
-      element=driver.findElement(By.id(arg0));
-      element.sendKeys("blakaj123");
+        element = driver.findElement(By.id(arg0));
+        element.sendKeys("blakaj123");
         new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(element));
 
     }
 
     @And("^User click on Care plan and click Add new Alert Rule click button Add new Aler rule$")
     public void userClickOnCareplanAndClickAddNewAlerRuleClickButtonAddNewAlerRule() {
-        element= driver.findElement(By.cssSelector("#collapseDiseaseRule > div > form > div > div.container.m-t-30.m-b-50 > div > div:nth-child(1) > button"));
+        element = driver.findElement(By.cssSelector("#collapseDiseaseRule > div > form > div > div.container.m-t-30.m-b-50 > div > div:nth-child(1) > button"));
         element.click();
     }
 
     @And("^User click on Device :\"([^\"]*)\"$")
     public void userClickOnDevice(String arg0) throws Throwable {
-       element = driver.findElement(By.cssSelector("a[href='"+arg0+"']"));
-       element.click();
-       Assert.assertEquals(driver.getCurrentUrl(),"https://nj-staging.vianovahealth.com/patients/342/device_summaries");
+        element = driver.findElement(By.cssSelector("a[href='" + arg0 + "']"));
+        element.click();
+        Assert.assertEquals(driver.getCurrentUrl(), "https://nj-staging.vianovahealth.com/patients/342/device_summaries");
     }
 
     @And("^User clicn on device Add Device :\"([^\"]*)\"$")
     public void userClicnOnDeviceAddDevice(String arg0) throws Throwable {
         element = driver.findElement(By.id(arg0));
         element.click();
-//        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(element));
+//    new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(element));
     }
 
     @And("^User click on All Alerts :\"([^\"]*)\"$")
     public void userClickOnAllAlerts(String arg0) throws Throwable {
-        element = driver.findElement(By.cssSelector("a[href='"+arg0+"']"));
+        element = driver.findElement(By.cssSelector("a[href='" + arg0 + "']"));
         element.click();
-        Assert.assertEquals(driver.getCurrentUrl(),"https://nj-staging.vianovahealth.com/patients/342/alerts");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://nj-staging.vianovahealth.com/patients/342/alerts");
     }
 
     @And("^User click on all Alerts and Done$")
     public void userClickOnAllAlertsAndDone() {
         element = driver.findElement(By.className("dismiss-new"));
         element.click();
-        new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(By.className("dismiss-new")));
+        new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.className("dismiss-new")));
     }
 
     @And("^User click and search Encounter :\"([^\"]*)\"$")
     public void userClickAndSearchEncounter(String arg0) throws Throwable {
-        element = driver.findElement(By.cssSelector("a[href='"+arg0+"']"));
+        element = driver.findElement(By.cssSelector("a[href='" + arg0 + "']"));
         element.click();
-        Assert.assertEquals(driver.getCurrentUrl(),"https://nj-staging.vianovahealth.com/patients/342/encounters");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://nj-staging.vianovahealth.com/patients/342/encounters");
 
     }
 
@@ -686,7 +687,7 @@ public class NavBarStepDefinitions {
 
     @And("^User click and search Encounter and select Minutes : \"([^\"]*)\"$")
     public void userClickAndSearchEncounterAndSelectMinutes(String value) throws Throwable {
-        element = driver.findElement(By.cssSelector("input[name='"+value+"']"));
+        element = driver.findElement(By.cssSelector("input[name='" + value + "']"));
         element.sendKeys("32");
     }
 
@@ -698,26 +699,26 @@ public class NavBarStepDefinitions {
 
     @And("^User click and search Encounter and select outcomes$")
     public void userClickAndSearchEncounterAndSelectOutcomes() {
-        element  = driver.findElement(By.cssSelector("#add-encounter-modal > div > div:nth-child(2) > div:nth-child(2) > div > select > option:nth-child(4)"));
+        element = driver.findElement(By.cssSelector("#add-encounter-modal > div > div:nth-child(2) > div:nth-child(2) > div > select > option:nth-child(4)"));
         element.click();
     }
 
     @And("^User click and search Encounter and click Date$")
-    public void userClickAndSearchEncounterAndClickDate(){
-        element =driver.findElement(By.xpath("//*[@id=\"add-encounter-modal\"]/div/div[3]/div[1]/div/input"));
+    public void userClickAndSearchEncounterAndClickDate() {
+        element = driver.findElement(By.xpath("//*[@id=\"add-encounter-modal\"]/div/div[3]/div[1]/div/input"));
         element.sendKeys("12121998");
 
     }
 
     @And("^User click and search Encounter and select Time$")
-    public void userClickAndSearchEncounterAndSelectTime()  {
-        element= driver.findElement(By.xpath("//*[@id=\"add-encounter-modal\"]/div/div[3]/div[2]/div/input"));
+    public void userClickAndSearchEncounterAndSelectTime() {
+        element = driver.findElement(By.xpath("//*[@id=\"add-encounter-modal\"]/div/div[3]/div[2]/div/input"));
         element.sendKeys("1203PM");
 
     }
 
     @And("^User click and search Encounter and write down notes$")
-    public void userClickAndSearchEncounterAndWriteDownNotes() throws Throwable{
+    public void userClickAndSearchEncounterAndWriteDownNotes() throws Throwable {
         element = driver.findElement(By.xpath("//*[@id=\"add-encounter-modal\"]/div/div[4]/div/div/textarea"));
         element.sendKeys("blakaj123123121312");
 
@@ -725,27 +726,27 @@ public class NavBarStepDefinitions {
 
     @And("^User click and search Encounter and set Date next Schedle :\"([^\"]*)\"$")
     public void userClickAndSearchEncounterAndSetDateNextSchedle(String arg0) throws Throwable {
-        element = driver.findElement(By.cssSelector("input[name='"+arg0+"']"));
+        element = driver.findElement(By.cssSelector("input[name='" + arg0 + "']"));
         element.sendKeys("12121997");
 
     }
 
     @And("^User click and search Encounter and select Additional Information :\"([^\"]*)\"$")
     public void userClickAndSearchEncounterAndSelectAdditionalInformation(String args) throws Throwable {
-        element= driver.findElement(By.xpath("//*[@id=\"add-encounter-modal\"]/div/div[4]/div/div/textarea"));
-        element.sendKeys("Random  Text");
+        element = driver.findElement(By.xpath("//*[@id=\"add-encounter-modal\"]/div/div[4]/div/div/textarea"));
+        element.sendKeys("Random Text");
     }
 
     @And("^User click Save on add Encounter$")
-    public void userClickSaveOnAddEncouter()throws  Throwable  {
+    public void userClickSaveOnAddEncouter() throws Throwable {
         element = driver.findElement(By.xpath("//*[@id=\"add-encounter-modal\"]/div/div[7]/div/div[1]/button"));
         element.click();
 
     }
 
     @And("^User click and search Encounter Add Action button$")
-    public void userClicnAndSerachEncounterAddActionButton() throws  Throwable{
-        element =driver.findElement(By.xpath("//*[@id=\"encounter\"]/div[3]/div[1]/div/ul/li[3]/button"));
+    public void userClicnAndSerachEncounterAddActionButton() throws Throwable {
+        element = driver.findElement(By.xpath("//*[@id=\"encounter\"]/div[3]/div[1]/div/ul/li[3]/button"));
         element.click();
         Thread.sleep(3999);
     }
@@ -760,8 +761,8 @@ public class NavBarStepDefinitions {
 
     @And("^User click Add Action encounter checked Blood Sugar :\"([^\"]*)\"$")
     public void userClickAddActionEncounterCheckedBloodSugar(String arg0) throws Throwable {
-            element = driver.findElement(By.xpath("//*[@id=\"daily-action-plan\"]/div/div[3]/div[2]/input"));
-            element.sendKeys("8");
+        element = driver.findElement(By.xpath("//*[@id=\"daily-action-plan\"]/div/div[3]/div[2]/input"));
+        element.sendKeys("8");
 
         element = driver.findElement(By.xpath("//*[@id=\"daily-action-plan\"]/div/div[3]/div[3]/input"));
         element.sendKeys("12");
@@ -780,7 +781,6 @@ public class NavBarStepDefinitions {
 
         element = driver.findElement(By.xpath("//*[@id=\"daily-action-plan\"]/div/div[4]/div[2]/input"));
         element.sendKeys("2");
-
 
 
         element = driver.findElement(By.xpath("//*[@id=\"daily-action-plan\"]/div/div[4]/div[3]/input"));
@@ -825,18 +825,18 @@ public class NavBarStepDefinitions {
     }
 
     @And("^Check for Signs$")
-    public void checkForSigns() throws Throwable{
+    public void checkForSigns() throws Throwable {
         element = driver.findElement(By.xpath("//*[@id=\"daily-action-plan\"]/div/div[8]/div/div/div[1]/div/label"));
         element.click();
-        element =driver.findElement(By.xpath("//*[@id=\"daily-action-plan\"]/div/div[8]/div/div/div[2]/div/label"));
+        element = driver.findElement(By.xpath("//*[@id=\"daily-action-plan\"]/div/div[8]/div/div/div[2]/div/label"));
         element.click();
 
 
         //minuatat
-        element =driver.findElement(By.xpath("//*[@id=\"daily-action-plan\"]/div/div[1]/div[2]/div/input"));
+        element = driver.findElement(By.xpath("//*[@id=\"daily-action-plan\"]/div/div[1]/div[2]/div/input"));
         element.sendKeys("12");
 
-        element =driver.findElement(By.xpath("//*[@id=\"daily-action-plan\"]/div/div[2]/div[4]/input"));
+        element = driver.findElement(By.xpath("//*[@id=\"daily-action-plan\"]/div/div[2]/div[4]/input"));
         element.sendKeys("Endrit");
 
     }
@@ -845,7 +845,7 @@ public class NavBarStepDefinitions {
     public void saveButon() {
         element = driver.findElement(By.xpath("//*[@id=\"daily-action-plan\"]/div/div[9]/div/div[1]/button"));
         element.click();
-        Assert.assertEquals(driver.getCurrentUrl(),"https://nj-staging.vianovahealth.com/patients/342/encounters");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://nj-staging.vianovahealth.com/patients/342/encounters");
     }
 }
 
