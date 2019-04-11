@@ -7,6 +7,7 @@ import cucumber.api.java.Before;
 import cucumber.api.java.cs.A;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.gl.E;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -329,11 +330,14 @@ public class OnBoardingStepDefinitions {
     }
 
     //  TODO fix selector
-    @And("^User select Emergency_Contact_Information_Preferred_Phone_Number \"([^\"]*)\"$")
-    public void userSelectEmergency_Contact_Information_Preferred_Phone_Number(String value)  {
-        WebElement element = driver.findElement(By.cssSelector("select[name='emergencyContact[preferred_contact]'] > option[value=" + value + "]"));
+    @And("^User select Emergency_Contact_Information_Preferred_Phone_Number")
+    public void userSelectEmergency_Contact_Information_Preferred_Phone_Number() {
+        WebElement element = driver.findElement(By.cssSelector("#emergency-contact > div:nth-child(4) > div > div > div > div > select"));
         element.click();
-        Assert.assertEquals(element.getAttribute("value"), value);
+        WebElement element1 = driver.findElement(By.cssSelector("#emergency-contact > div:nth-child(4) > div > div > div > div > select > option:nth-child(3)"));
+        element1.click();
+//        Assert.assertEquals(element.getAttribute("value"), value);
+
     }
 
     @And("^User select Emergency_Contact_Information_Language$")
@@ -385,7 +389,7 @@ public class OnBoardingStepDefinitions {
     }
 
     @And("^User types Name")
-    public void userTypesName()  {
+    public void userTypesName() {
         WebElement element = driver.findElement(By.cssSelector("input[placeholder='Search Medication Name']"));
         element.sendKeys("Lexapro");
     }
@@ -411,7 +415,7 @@ public class OnBoardingStepDefinitions {
     }
 
     @And("^User types Time of the day«")
-    public void userTypesTimeOfTheDay()  {
+    public void userTypesTimeOfTheDay() {
         WebElement element = driver.findElement(By.cssSelector("div > label[for='cb_afternoon']"));
         element.click();
     }
@@ -441,27 +445,18 @@ public class OnBoardingStepDefinitions {
         WebElement element1 = driver.findElement(By.cssSelector("#collapseExample > div > form > div > div.container.m-t-30.m-b-50 > div > div:nth-child(1) > button"));
         element1.click();
     }
-
-    @And("^User Adds Patient's Disabilities_blind")
-    public void userAddsPatientSDisabilities_blind(){
-        WebElement element = driver.findElement(By.xpath("//*[@id=\"onBoardForm\"]/div[4]/div/div[2]/div/div[1]/label"));
-        element.click();
-    }
-
-    @And("^User Adds Patient's Disabilities_Has_Service_Dog")
-    public void userAddsPatientSDisabilities_Has_Service_Dog() {
-        WebElement element = driver.findElement(By.cssSelector("label[for='cb_service-dog']"));
-        element.click();
-    }
-
-    @And("^User Adds Patient's Disabilities_Amputations")
-    public void userAddsPatientSDisabilities_Amputations() {
-        WebElement element = driver.findElement(By.cssSelector("label[for='cb_amputations']"));
-        element.click();
-    }
-
-
-
+//
+//    @And("^User Adds Patient's Disabilities_blind")
+//    public void userAddsPatientSDisabilities_blind(){
+//        WebElement element = driver.findElement(By.cssSelector("#onBoardForm > div:nth-child(5) > div > div.row.m-t-50 > div > div:nth-child(1) > label"));
+//        element.click();
+//    }
+//
+//    @And("^User Adds Patient's Disabilities_Amputations")
+//    public void userAddsPatientSDisabilities_Amputations() {
+//        WebElement element = driver.findElement(By.xpath("//*[@id=\"onBoardForm\"]/div[4]/div/div[2]/div/div[9]/label"));
+//        element.click();
+//    }
 
 
     @And("^User click in Alert Rules bttn$")
@@ -479,20 +474,20 @@ public class OnBoardingStepDefinitions {
 
 
     @And("^User types_status\"([^\"]*)\"$")
-    public void userTypes_status(String value)  {
+    public void userTypes_status(String value) {
         WebElement element = driver.findElement(By.xpath("//option[contains(text(),'" + value + "')]"));
         element.click();
 //        Assert.assertEquals(element.getAttribute("text"), value);
     }
 
     @And("^User types_Vital Type\"([^\"]*)\"$")
-    public void userTypes_VitalType(String value){
+    public void userTypes_VitalType(String value) {
         WebElement element = driver.findElement(By.xpath("//option[contains(text(),'" + value + "')]"));
         element.click();
     }
 
     @And("^User types_From")
-    public void userTypes_From( ) {
+    public void userTypes_From() {
         WebElement element = driver.findElement(By.cssSelector("input[placeholder='From']"));
         element.sendKeys("150");
     }
@@ -505,7 +500,7 @@ public class OnBoardingStepDefinitions {
 
 
     @And("^User types textarea_background\"([^\"]*)\"$")
-    public void userTypes_DisplayMessage(String text_area_background)  {
+    public void userTypes_DisplayMessage(String text_area_background) {
         WebElement element = driver.findElement(By.cssSelector("textarea[placeholder='Display Message']"));
         element.sendKeys(text_area_background);
         Assert.assertEquals(element.getAttribute("value"), text_area_background);
@@ -513,12 +508,16 @@ public class OnBoardingStepDefinitions {
 
     @And("^User types save$")
     public void userTypesSave() {
-        WebElement element=driver.findElement(By.cssSelector("#collapseDiseaseRule > div > form > div > div.container.m-t-30.m-b-50 > div > div:nth-child(1) > button"));
+        WebElement element = driver.findElement(By.cssSelector("#collapseDiseaseRule > div > form > div > div.container.m-t-30.m-b-50 > div > div:nth-child(1) > button"));
         element.click();
     }
 
 
-
+    @And("^User clcik save bttn$")
+    public void userClcikSaveBttn() {
+        WebElement element = driver.findElement(By.cssSelector("#onBoardForm > div:nth-child(7) > div.container.m-t-100.m-b-50 > div > div:nth-child(1) > a"));
+        element.click();
+    }
 
 
     //=======================================EDIT PATIENT EDIT PATIENT EDIT PATIENT EDIT PATIENT
@@ -582,7 +581,7 @@ public class OnBoardingStepDefinitions {
         Assert.assertEquals(element.getAttribute("value"), value);
     }
 
-    @And("^User edit  Disease")
+    @And("^User edit Disease")
     public void userEditDisease() {
         WebElement element = driver.findElement(By.id("disease_id"));
         element.click();
@@ -590,7 +589,7 @@ public class OnBoardingStepDefinitions {
         element1.click();
     }
 
-    @And("^User edit  Cell_Phone \"([^\"]*)\"$")
+    @And("^User edit Cell_Phone \"([^\"]*)\"$")
     public void userEditCellPhone(String Cell_Phone) {
         WebElement element = driver.findElement(By.id("cell_phone"));
         element.clear();
@@ -598,7 +597,7 @@ public class OnBoardingStepDefinitions {
 //        Assert.assertEquals(element.getAttribute("value"),Cell_Phone);
     }
 
-    @And("^User edit  Home_Phone \"([^\"]*)\"$")
+    @And("^User edit Home_Phone \"([^\"]*)\"$")
     public void userEditHome_Phone(String Home_Phone) {
         WebElement element = driver.findElement(By.id("home_phone"));
         element.clear();
@@ -606,7 +605,7 @@ public class OnBoardingStepDefinitions {
 //        Assert.assertEquals(element.getAttribute("value"),Home_Phone);
     }
 
-    @And("^User edit  Adress_Line \"([^\"]*)\"$")
+    @And("^User edit Adress_Line \"([^\"]*)\"$")
     public void userEditAdressLine(String Adress_Line) {
         WebElement element = driver.findElement(By.name("patient[address_line_1]"));
         element.clear();
@@ -614,7 +613,7 @@ public class OnBoardingStepDefinitions {
 //        Assert.assertEquals(element.getAttribute("value"),Adress_Line);
     }
 
-    @And("^User edit  Adress_Line_second\"([^\"]*)\"$")
+    @And("^User edit Adress_Line_second\"([^\"]*)\"$")
     public void userEditAdress_Line_second(String Adress_Line_second) {
         WebElement element = driver.findElement(By.name("patient[address_line_2]"));
         element.clear();
@@ -622,7 +621,7 @@ public class OnBoardingStepDefinitions {
 //        Assert.assertEquals(element.getAttribute("value"),Adress_Line_second);
     }
 
-    @And("^User edit  Language")
+    @And("^User edit Language")
     public void userEditLanguage() {
         WebElement element = driver.findElement(By.cssSelector("div > label[for='spanish']"));
         element.click();
@@ -634,5 +633,133 @@ public class OnBoardingStepDefinitions {
         element.click();
     }
 
+//    ==============================ENCOUNTERS
 
+    @And("^User click in to a patient$")
+    public void userClickInToAPatient() throws Exception {
+        WebElement element = driver.findElement(By.id("row-light"));
+        element.click();
+//        Assert.assertEquals(driver.getCurrentUrl(),"http://nj-staging.vianovahealth.com/patients/351/controls");
+    }
+
+    @And("^User click in encounters bttn")
+    public void userClickInEncountersBttn() {
+        WebElement element = driver.findElement(By.cssSelector("#control_screen > div.container > div > div > ul > li:nth-child(7) > a"));
+        element.click();
+    }
+
+    @And("^user click in encounters_edit bttn$")
+    public void userCilckInEncounters_editBttn() {
+        WebElement element = driver.findElement(By.cssSelector("#encounter > div.content-background > div.container.m-t-30.m-b-30 > div > ul > li:nth-child(4) > button"));
+        element.click();
+    }
+
+    @And("^User types Assign_To")
+    public void userTypesAssignTo()throws Exception{
+        Thread.sleep(3000);
+        WebElement element=driver.findElement(By.xpath("//*[@id=\"edit-encounter-modal\"]/div/div[1]/div[1]/div/select"));
+        element.click();
+        element = driver.findElement(By.xpath("//*[@id=\"edit-encounter-modal\"]/div/div[1]/div[1]/div/select/option[2]"));
+        element.click();
+
+    }
+
+    @And("^User types Resources")
+    public void userTypesResources()  {
+
+        WebElement element=driver.findElement(By.xpath("//*[@id=\"edit-encounter-modal\"]/div/div[1]/div[2]/div/select"));
+        element.click();
+        element = driver.findElement(By.xpath("//*[@id=\"edit-encounter-modal\"]/div/div[1]/div[2]/div/select/option[11]"));
+        element.click();
+    }
+
+    @And("^User types Minutes$")
+    public void userTypesMinutes(){
+        WebElement element=driver.findElement(By.xpath("//*[@id=\"edit-encounter-modal\"]/div/div[1]/div[3]/div/input"));
+        element.sendKeys("34");
+    }
+
+
+    @And("^User types Reason")
+    public void userTypesReason()  {
+
+        WebElement element=driver.findElement(By.xpath("//*[@id=\"edit-encounter-modal\"]/div/div[2]/div[1]/div/select"));
+        element.click();
+        element = driver.findElement(By.xpath("//*[@id=\"edit-encounter-modal\"]/div/div[2]/div[1]/div/select/option[2]"));
+        element.click();
+    }
+
+    @And("^User types Outcomes$")
+    public void userTypesOutcomes() {
+        WebElement element=driver.findElement(By.xpath("//*[@id=\"edit-encounter-modal\"]/div/div[2]/div[2]/div/select"));
+        element.click();
+        element = driver.findElement(By.xpath("//*[@id=\"edit-encounter-modal\"]/div/div[2]/div[2]/div/select/option[7]"));
+        element.click();
+    }
+
+    @And("^User types Date$")
+    public void userTypesDate() {
+//        Thread.sleep(3000);
+        WebElement element=driver.findElement(By.xpath("//*[@id=\"edit-encounter-modal\"]/div/div[3]/div[1]/div/input"));
+        element.sendKeys("10");
+        element.sendKeys("10");
+        element.sendKeys("2019");
+    }
+
+    @And("^User types Time$")
+    public void userTypesTime() {
+        WebElement element=driver.findElement(By.xpath("//*[@id=\"edit-encounter-modal\"]/div/div[3]/div[2]/div/input"));
+        element.sendKeys("10");
+        element.sendKeys("10");
+        element.sendKeys("Am");
+    }
+
+    @And("^User types Intro Call$")
+    public void userTypesIntroCall() {
+        WebElement element=driver.findElement(By.xpath("//*[@id=\"edit-encounter-modal\"]/div/div[4]/div/div/select"));
+        element.click();
+        element = driver.findElement(By.xpath("//*[@id=\"edit-encounter-modal\"]/div/div[4]/div/div/select/option[6]"));
+        element.click();
+    }
+
+    @And("^User types Notes$")
+    public void userTypesNotes() {
+        WebElement element=driver.findElement(By.xpath("//*[@id=\"edit-encounter-modal\"]/div/div[5]/div/div/textarea"));
+        element.sendKeys("KA LUJT HAVERI");
+    }
+
+    @And("^Next Call Schedule_date$")
+    public void nextCallSchedule_date() {
+        WebElement element=driver.findElement(By.xpath("//*[@id=\"edit-encounter-modal\"]/div/div[3]/div[1]/div/input"));
+        element.sendKeys("10");
+        element.sendKeys("10");
+        element.sendKeys("2019");
+    }
+
+    @And("^Next Call Schedule_Time$")
+    public void nextCallSchedule_Time() {
+        WebElement element=driver.findElement(By.xpath("//*[@id=\"edit-encounter-modal\"]/div/div[3]/div[2]/div/input"));
+        element.sendKeys("10");
+        element.sendKeys("10");
+        element.sendKeys("Pm");
+    }
+
+    @And("^Additional Information$")
+    public void additionalInformation() {
+        WebElement element=driver.findElement(By.xpath("//*[@id=\"edit-encounter-modal\"]/div/div[7]/div/div/textarea"));
+        element.sendKeys("KA LUJT HAVERI");
+    }
+
+    @And("^Update$")
+    public void update() {
+        WebElement element=driver.findElement(By.xpath("//*[@id=\"edit-encounter-modal\"]/div/div[8]/div/div/button"));
+        element.click();
+    }
+
+//    @And("^Delete_bttn$")
+//    public void delete_bttn() throws Exception {
+//        Thread.sleep(3000);
+//        WebElement element=driver.findElement(By.xpath("//*[@id=\"encounter\"]/div[3]/div[1]/div/ul/li[5]/button"));
+//        element.click();
+//    }
 }
