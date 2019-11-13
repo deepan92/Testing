@@ -39,8 +39,8 @@ Feature: Test Log In
     And User types password : "blakaj123"
     And Click Log In button
     And Add New User Button
-    And Add new Name : "first_name"
-    And Add new LastName : "last_name"
+    And Add new Name :
+    And Add new LastName :
     And Add FirstAddress
     And Add SecondAddress
     And Add APT/SUITE
@@ -64,12 +64,10 @@ Feature: Test Log In
     And Click Log In button
     And User selct Specialist
     And User tries to create another specialist
-    And User Put in the Name
+    And User Put in the Namee
     And User types the LastName
     And User select a speciality
     And User types in the cell Phone Number
-    And User types in the Home Phone Number
-    And User types in the work Phone Number
     And User select Preferred Phone Number
     And User types in Extension
     And User types on the Email
@@ -83,13 +81,13 @@ Feature: Test Log In
     And User types password : "blakaj123"
     And Click Log In button
     And Click on Provider
-    And Click +Add Provider
+    And Click Add Provider
     And User put in the Fist Name
     And User put the LastName
     And User Put in the Email
     And User put in the Cell_Phone
-    And User put in the HomPhone
-    And User put in the FaxNumber
+    And User click on the PreferedNumber
+    And User put in the FAX number
     And User Submits the Save Button
 
          # In this Scenario we will add another Role to our Tests
@@ -143,7 +141,7 @@ Feature: Test Log In
     And Click Log In button
     And User click on Disease-Plan
     And User click on +Add Disease Plans
-    And User click on KastriotDisease
+   # And User click on KastriotDisease
     And User click on +Add New Disease Plan
     And User click on Task and Vitals
     And User click on Frequency

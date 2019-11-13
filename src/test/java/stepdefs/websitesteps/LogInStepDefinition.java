@@ -7,16 +7,21 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import gherkin.lexer.Fa;
 import gherkin.lexer.Tr;
+import javafx.util.Pair;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import sun.jvm.hotspot.debugger.Page;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 public class LogInStepDefinition {
@@ -97,20 +102,24 @@ public class LogInStepDefinition {
         Assert.assertEquals(s, "https://dev.vianovahealth.com/admin/users/create");
     }
 
-    @And("^Add new Name : \"([^\"]*)\"$")
-    public void addNewName(String value) throws Throwable {
-        String name = "Kastriot";
-        element = driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > form > div > div:nth-child(1) > div:nth-child(1) > div > input"));
-        element.sendKeys("Kasriotttt");
-        //Assert.assertTrue(element.isEnabled());ddd
+    @And("^Add new Name :")
+    public void addNewName() throws InterruptedException {
+        element = driver.findElement(By.name("first_name"));
+        element.sendKeys("Kastriot");
+        Thread.sleep(2000);
     }
 
-    @And("^Add new LastName : \"([^\"]*)\"$")
-    public void addNewLastName(String value) throws Throwable {
-        String lastname = "Blakaj";
+    @And("^Add new LastName :")
+    public void addNewLastName() throws Throwable {
+
         element = driver.findElement(By.cssSelector("#last_name"));
-        element.sendKeys(lastname);
-        Assert.assertTrue(element.isEnabled());
+        if (element.isEnabled() && element.isDisplayed()) {
+            element.sendKeys("Blakaj");
+        } else {
+            Assert.assertFalse(false);
+        }
+        Thread.sleep(2000);
+
     }
 
 
@@ -174,10 +183,14 @@ public class LogInStepDefinition {
     }
 
     @And("^Put valid Email$")
-    public void putValidEmail() {
+    public void putValidEmail() throws InterruptedException {
         element = driver.findElement(By.name("email"));
-        element.sendKeys("blakaj@gmail.com");
-        Assert.assertTrue(element.isDisplayed());
+        if (element.isDisplayed() && element.isEnabled()) {
+                        element.sendKeys("kast32riotbasdflakaaj@hotmail.com");                //Email Unique
+        } else {
+            Assert.assertFalse(false);
+        }
+        Thread.sleep(1000);
     }
 
     @And("^Set a password for User$")
@@ -243,212 +256,268 @@ public class LogInStepDefinition {
     }
 
     @And("^User selct Specialist$")
-    public void userSelctSpecialist() {
-        element = driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-2.col-sm-12.col-xs-12 > div > div > div > ul > li:nth-child(2) > a"));
-        element.click();
-        String url = "https://dev.vianovahealth.com/admin/specialists";
-        if (url.equals(driver.getCurrentUrl())) {
-            Assert.assertTrue(true);
-        } else {
-            Assert.assertFalse(false);
-        }
+    public void userSelctSpecialist() throws  InterruptedException{
+       element=driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-2.col-sm-12.col-xs-12 > div > div > div > ul > li:nth-child(2) > a"));
+       if(element.isDisplayed() && element.isEnabled()){
+           element.click();
+       }
+       else {
+           Assert.assertFalse(false);
+       }
+
+
     }
 
     @And("^User tries to create another specialist$")
-    public void userTriesToCreateAnotherSpecialist() {
-        element = driver.findElement(By.className("create-btn"));
-        element.click();
+    public void userTriesToCreateAnotherSpecialist() throws InterruptedException {
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        String url = "https://dev.vianovahealth.com/admin/specialists/create";
-        if (url.equals(driver.getCurrentUrl())) {
-            Assert.assertTrue(true);
-        } else {
+        element=driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > div.row > div > a"));
+        if(element.isDisplayed() && element.isEnabled()){
+            element.click();
+        }
+        else {
             Assert.assertFalse(false);
         }
+
+        Thread.sleep(3000);
+
+
     }
 
-    @And("^User Put in the Name$")
+    @And("^User Put in the Namee$")
     public void userPutInTheName() {
-        element = driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > form > div.right-content > div:nth-child(1) > div:nth-child(1) > div > input"));
-        element.sendKeys("Florent");
-        Assert.assertTrue(element.isDisplayed());
+      //  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        element =driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > form > div.right-content > div:nth-child(1) > div:nth-child(1) > div > input"));
+        if(element.isEnabled() &&  element.isDisplayed()){
+            element.sendKeys("Kastriot");
+            Assert.assertTrue(element.isDisplayed());
+        }
+        else {
+            Assert.assertFalse(false);
+        }
+
+
     }
+
 
     @And("^User types the LastName$")
-    public void userTypesTheLastName() {
-        element = driver.findElement(By.cssSelector("#last_name"));
-        element.sendKeys("Plakolli");
-        Assert.assertTrue(element.isDisplayed());
+    public void userTypesTheLastName() throws InterruptedException{
+        List<WebElement> list= driver.findElements(By.className("form-control"));
+
+        if(element.isDisplayed() && element.isEnabled()){
+            list.get(2).sendKeys("Blakaj");
+        }else {
+
+            Assert.assertFalse(false);
+        }
+
+
     }
 
     @And("^User select a speciality$")
     public void userSelectASpeciality() throws InterruptedException {
-        element = driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > form > div.right-content > div:nth-child(1) > div:nth-child(3) > div > select > option:nth-child(17)"));
-        element.click();
-        Assert.assertTrue(element.isDisplayed());
+        element=driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > form > div.right-content > div:nth-child(1) > div:nth-child(3) > div > select > option:nth-child(4)"));
+
+        if(element.isDisplayed() && element.isEnabled()){
+            element.click();
+        }else {
+            Assert.assertFalse(false);
+        }
 
     }
 
     @And("^User types in the cell Phone Number$")
-    public void userTypesInTheCellPhoneNumber() {
-        element = driver.findElement(By.id("cell_phone"));
-        element.sendKeys("(234) 646-4645");
-        Assert.assertTrue(element.isDisplayed());
+    public void userTypesInTheCellPhoneNumber()throws Exception {
+        List<WebElement> list= driver.findElements(By.className("form-control"));
+
+        if(element.isDisplayed() && element.isEnabled()){
+            list.get(4).sendKeys("(234) 646-4645");
+            list.get(5).sendKeys("(234) 646-4215");
+            list.get(6).sendKeys("(234) 636-4645");
+        }else {
+
+            Assert.assertFalse(false);
+        }
+        Thread.sleep(3333);
     }
 
-    @And("^User types in the Home Phone Number$")
-    public void userTypesInTheHomePhoneNumber() {
-        element = driver.findElement(By.id("home_phone"));
-        element.sendKeys("(234) 646-1234");
-        Assert.assertTrue(element.isDisplayed());
-    }
-
-    @And("^User types in the work Phone Number$")
-    public void userTypesInTheWorkPhoneNumber() {
-        element = driver.findElement(By.id("home_phone"));
-        element.sendKeys("(234) 123-4567");
-        Assert.assertTrue(element.isDisplayed());
-    }
 
     @And("^User select Preferred Phone Number$")
     public void userSelectPreferredPhoneNumber() {
-        element = driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > form > div.right-content > div:nth-child(2) > div.col-md-3.m-t-20 > div > select > option:nth-child(3)"));
-        element.click();
-        Assert.assertTrue(element.isDisplayed());
+        element=driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > form > div.right-content > div:nth-child(2) > div.col-md-3.m-t-20 > div > select > option:nth-child(2)"));
+        if(element.isEnabled()&& element.isDisplayed()){
+            element.click();
+            Assert.assertTrue(element.isDisplayed()&& element.isEnabled());
+        }
+        else{
+            Assert.assertFalse(false);
+        }
 
     }
 
     @And("^User types in Extension$")
-    public void userTypesInExtension() {
-        element = driver.findElement(By.name("extension"));
-        element.sendKeys(" Fist Extension ");
-        Assert.assertTrue(element.isDisplayed());
+    public void userTypesInExtension() throws InterruptedException{
+        List<WebElement> list= driver.findElements(By.className("form-control"));
+
+        if(element.isDisplayed() && element.isEnabled()){
+            list.get(8).sendKeys("Extension-Kastriot");
+            Assert.assertTrue(element.isDisplayed()&& element.isEnabled());
+        }else {
+
+            Assert.assertFalse(false);
+        }
+        Thread.sleep(3333);
+
     }
 
     @And("^User types on the Email$")
-    public void userTypesOnTheEmail() {                                     //Unique Email
-        element = driver.findElement(By.name("email"));
-        element.sendKeys("Emaill@hotmail.com");
-        Assert.assertTrue(element.isDisplayed());
+    public void userTypesOnTheEmail() {
+        List<WebElement> list= driver.findElements(By.className("form-control"));
+
+        if(element.isDisplayed() && element.isEnabled()){
+            list.get(9).sendKeys("lotisdsdfj1323223@gmail.com");                       //Email unique
+            Assert.assertTrue(element.isDisplayed()&& element.isEnabled());
+
+        }else {
+
+            Assert.assertFalse(false);
+        }//Unique Email
+
     }
 
     @And("^User check the checkBox$")
     public void userCheckTheCheckBox() {
-        element = driver.findElement(By.name("send_text_message"));
-        element.submit();
+        element=driver.findElement(By.className("form-check-input"));
+        if(element.isDisplayed()&& element.isEnabled()){
+            element.click();
+            Assert.assertTrue(element.isDisplayed()&& element.isEnabled());
+
+        }else {
+            Assert.assertFalse(false);
+        }
+
 
     }
 
     @And("^User Submit the Create Button$")
     public void userSubmitTheCreateButton() throws InterruptedException {
-        element = driver.findElement(By.className("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > form > div.row.justify-content-center.m-t-50 > div:nth-child(1)    "));
-        element.submit();
-        Thread.sleep(2000);
+        element=driver.findElement(By.className("btn-blue"));
+         while (element.isEnabled()&& element.isDisplayed()){
+             element.click();
+
+         }
+
+        driver.navigate().to("https://dev.vianovahealth.com/admin/users");
     }
+    // Provider a
 
     @And("^Click on Provider$")
     public void clickOnProvider() {
         element = driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-2.col-sm-12.col-xs-12 > div > div > div > ul > li:nth-child(3) > a"));
-        element.click();
-        String url = "https://dev.vianovahealth.com/admin/providers";
-        if (url.equals(driver.getCurrentUrl())) {
-            Assert.assertTrue(true);
-        } else {
+        if(element.isEnabled()&& element.isDisplayed()){
+            element.click();
+          //  Assert.assertTrue(element.isDisplayed()&& element.isEnabled());
+        }
+        else {
             Assert.assertFalse(false);
         }
 
     }
 
-    @And("^Click \\+Add Provider$")
+    @And("^Click Add Provider$")
     public void clickAddProvider() throws InterruptedException {
-        element = driver.findElement(By.className("create-btn"));
-        element.click();
-
-        String url = "https://dev.vianovahealth.com/admin/providers/create";
-        if (url.equals(driver.getCurrentUrl())) {
-            Assert.assertTrue(true);
-        } else {
+        element=driver.findElement(By.className("create-btn"));
+        if(element.isEnabled()&& element.isDisplayed()
+        ){
+            element.click();
+        }else {
             Assert.assertFalse(false);
         }
-        Thread.sleep(2000);
+
     }
 
     @And("^User put in the Fist Name$")
     public void userPutInTheFistName() {
-        element = driver.findElement(By.name("first_name"));
-        element.sendKeys("Blakaj");
-        Assert.assertTrue(element.isDisplayed());
+       element=driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > form > div > div:nth-child(1) > div:nth-child(1) > div > input"));
+       if(element.isDisplayed()&& element.isEnabled()){
+           element.sendKeys("Kastriot");
+       }else {
+           Assert.assertFalse(false);
+       }
+
+
     }
 
     @And("^User put the LastName$")
     public void userPutTheLastName() {
-        element = driver.findElement(By.name("last_name"));
-        element.sendKeys("Kastriot");
-        Assert.assertTrue(element.isDisplayed());
+        element=driver.findElement(By.cssSelector("#last_name"));
+        if(element.isDisplayed()&& element.isEnabled()){
+            element.sendKeys("Kastriot");
+        }else {
+            Assert.assertFalse(false);
+        }
+
     }
 
     @And("^User Put in the Email$")
     public void userPutInTheEmail() {
-        element = driver.findElement(By.name("email"));
-        element.sendKeys("Kastrioott@gmail.com"); //Unique Email
-        Assert.assertTrue(element.isDisplayed());
+        element=driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > form > div > div:nth-child(1) > div:nth-child(3) > div > input"));
+        if(element.isDisplayed()&& element.isEnabled()){
+            element.sendKeys("4343  f@gmail.comm");                               //Email unique
+        }else {
+            Assert.assertFalse(false);
+        }
+
     }
 
     @And("^User put in the Cell_Phone$")
-    public void userPutInTheCell_Phone() {
-        element = driver.findElement(By.id("cell_phone"));
-        element.sendKeys("(928) 410-9192");
-        Assert.assertTrue(element.isDisplayed());
+    public void userPutInTheCell_Phone() throws InterruptedException{
+
+        List<WebElement> list= driver.findElements(By.className("form-control"));
+
+        if(element.isDisplayed() && element.isEnabled()){
+            list.get(3).sendKeys("(928) 410-9192");
+            list.get(4).sendKeys("(928) 410-9444");
+            list.get(5).sendKeys("(928) 410-1234");
+            list.get(6).sendKeys("(928) 410-1234");
+
+        }else {
+
+            Assert.assertFalse(false);
+        }
+
+
+    }
+    @And("^User click on the PreferedNumber$")
+    public void userClickOnThePreferedNumber() {
+        element=driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > form > div > div:nth-child(2) > div.col-md-3.m-t-20 > div > select > option:nth-child(2)"));
+        element.click();
+    }
+    @And("^User put in the FAX number$")
+    public void userPutInTheFAXNumber() throws InterruptedException{
+        element=driver.findElement(By.cssSelector("#fax_number"));
+        element.sendKeys("(234) 242-3423");
+        Thread.sleep(3444);
     }
 
-    @And("^User put in the HomPhone$")
-    public void userPutInTheHomPhone() {
-        element = driver.findElement(By.id("home_phone"));
-        element.sendKeys("(928) 410-9592");
-        Assert.assertTrue(element.isDisplayed());
-    }
-
-    @And("^User put in the FaxNumber$")
-    public void userPutInTheFaxNumber() {
-        element = driver.findElement(By.id("fax_number"));
-        element.sendKeys("(928) 410-9592");
-        Assert.assertTrue(element.isDisplayed());
-    }
 
     @And("^User Submits the Save Button$")
     public void userSubmitsTheSaveButton() {
-        element = driver.findElement(By.className("btn-blue"));
-        element.submit();
-        String provider = "https://dev.vianovahealth.com/admin/providers";
-        if (provider.equals(driver.getCurrentUrl())) {
-            Assert.assertTrue(true);
-        } else {
-            Assert.assertFalse(false);
-        }
+
 
     }
 
     @And("^User click on the Roles$")
     public void userClickOnTheRoles() {
-        element = driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-2.col-sm-12.col-xs-12 > div > div > div > ul > li:nth-child(4) > a"));
-        element.click();
-        String provider = "https://dev.vianovahealth.com/admin/roles";
-        if (provider.equals(driver.getCurrentUrl())) {
 
-            Assert.assertTrue(true);
-        } else {
-            Assert.assertFalse(false);
-        }
     }
 
     @And("^User trie to Create another ROLE$")
     public void userTrieToCreateAnotherROLE() {
         element = driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > div.row > div > a"));
-        element.click();
-        String provider = "https://dev.vianovahealth.com/admin/roles/create";
-        if (provider.equals(driver.getCurrentUrl())) {
-
-            Assert.assertTrue(true);
+        if (element.isDisplayed() && element.isEnabled()) {
+            element.click();
         } else {
             Assert.assertFalse(false);
         }
@@ -457,8 +526,12 @@ public class LogInStepDefinition {
     @And("^User set a Name for the Name$")
     public void userSetANameForTheName() {
         element = driver.findElement(By.name("name"));
-        element.sendKeys("KastriotRole");
-        Assert.assertTrue(element.isDisplayed());
+        if (element.isEnabled() && element.isDisplayed()) {
+
+            element.sendKeys("KastriotRole");
+        } else {
+            Assert.assertFalse(false);
+        }
     }
 
     @And("^User set the permissions for the user$")
@@ -522,50 +595,46 @@ public class LogInStepDefinition {
     }
 
     @And("^User set the premissions for the last row$")
-    public void userSetThePremissionsForTheLastRow() throws InterruptedException{
+    public void userSetThePremissionsForTheLastRow() throws InterruptedException {
 
         List<WebElement> wb = driver.findElements(By.name("permissions[]"));  //Check for all Button that have the same name with the others Items !
-        for(WebElement we: wb){
-            if(we.isDisplayed() && we.isEnabled())
-                {
+        for (WebElement we : wb) {
+            if (we.isDisplayed() && we.isEnabled()) {
                 we.click();
-                  //Loop goes on till the end
-                 }
+                //Loop goes on till the end
             }
-            Thread.sleep(2200);
+        }
+        Thread.sleep(2200);
     }
 
     @And("^User Click Save Button$")
     public void userClickSaveButton() {
-        element=driver.findElement(By.className("btn-blue"));
+        element = driver.findElement(By.className("btn-blue"));
 
-        if(element.isDisplayed() && element.isEnabled() ){
+        if (element.isDisplayed() && element.isEnabled()) {
             element.click();
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
     }
 
     @And("^User click on the Onboarded Drugs$")
-    public void userClickOnTheOnboardedDrugs() throws  InterruptedException{
-        element=driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-2.col-sm-12.col-xs-12 > div > div > div > ul > li:nth-child(5) > a"));
-        if(element.isEnabled() && element.isDisplayed()){
+    public void userClickOnTheOnboardedDrugs() throws InterruptedException {
+        element = driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-2.col-sm-12.col-xs-12 > div > div > div > ul > li:nth-child(5) > a"));
+        if (element.isEnabled() && element.isDisplayed()) {
             element.click();
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
         Thread.sleep(2000);
     }
 
     @And("^User click on Add Onboard Drugs$")
-    public void userClickOnAddOnboardDrugs()throws  InterruptedException  {
-        element=driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > div.row > div > a"));
-        if(element.isEnabled() && element.isDisplayed()){
+    public void userClickOnAddOnboardDrugs() throws InterruptedException {
+        element = driver.findElement(By.xpath("//*[@id=\"patient-care\"]/div/div/div[2]/div[1]/div/a"));
+        if (element.isEnabled() && element.isDisplayed()) {
             element.click();
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
         Thread.sleep(2000);
@@ -573,11 +642,10 @@ public class LogInStepDefinition {
 
     @And("^User set the name of the Drug$")
     public void userSetTheNameOfTheDrug() {
-        element=driver.findElement(By.name("name"));
-        if(element.isEnabled() && element.isDisplayed()){
+        element = driver.findElement(By.name("name"));
+        if (element.isEnabled() && element.isDisplayed()) {
             element.sendKeys("Tableta1");
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
 
@@ -585,11 +653,10 @@ public class LogInStepDefinition {
 
     @And("^User click the Save Button$")
     public void userClickTheSaveButton() throws InterruptedException {
-        element=driver.findElement(By.className("btn-blue"));
-        if(element.isEnabled() && element.isDisplayed()){
+        element = driver.findElement(By.className("btn-blue"));
+        if (element.isEnabled() && element.isDisplayed()) {
             element.sendKeys("Tableta1");
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
         Thread.sleep(2000);
@@ -597,59 +664,55 @@ public class LogInStepDefinition {
     }
 
     @And("^User click on Disease$")
-    public void userClickOnDisease()throws InterruptedException  {
-        element=driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-2.col-sm-12.col-xs-12 > div > div > div > ul > li:nth-child(6) > a"));
-        if(element.isEnabled() && element.isDisplayed()){
+    public void userClickOnDisease() throws InterruptedException {
+        element = driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-2.col-sm-12.col-xs-12 > div > div > div > ul > li:nth-child(6) > a"));
+        if (element.isEnabled() && element.isDisplayed()) {
             element.click();
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
         Thread.sleep(2000);
     }
 
     @And("^User click on Add Disease$")
-    public void userClickOnAddDisease() throws InterruptedException     {
+    public void userClickOnAddDisease() throws InterruptedException {
 
-        element=driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > div.row > div > a"));
-        if(element.isEnabled() && element.isDisplayed()){
+        element = driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > div.row > div > a"));
+        if (element.isEnabled() && element.isDisplayed()) {
             element.click();
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
         Thread.sleep(2000);
     }
+
     @And("^User click on Add new Alert$")
     public void userClickOnAddNewAlert() {
-        element=driver.findElement(By.id("addAlert"));
-        if(element.isEnabled() && element.isDisplayed()){
+        element = driver.findElement(By.cssSelector("#addAlert"));
+        if (element.isEnabled() && element.isDisplayed()) {
             element.click();
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
     }
 
     @And("^User sents Disease Name$")
-    public void userSentsDiseaseName() throws InterruptedException{
-        element=driver.findElement(By.name("name"));
-        if(element.isEnabled() && element.isDisplayed()){
+    public void userSentsDiseaseName() throws InterruptedException {
+        element = driver.findElement(By.name("name"));
+        if (element.isEnabled() && element.isDisplayed()) {
             element.sendKeys("Kastriot-Disease");
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
         Thread.sleep(4000);
     }
 
     @And("^User puts is Ancronym$")
-    public void userPutsIsAncronym() throws InterruptedException{
-        element=driver.findElement(By.name("acronym"));
-        if(element.isEnabled() && element.isDisplayed()){
+    public void userPutsIsAncronym() throws InterruptedException {
+        element = driver.findElement(By.name("acronym"));
+        if (element.isEnabled() && element.isDisplayed()) {
             element.sendKeys("KT");
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
         Thread.sleep(4000);
@@ -657,44 +720,40 @@ public class LogInStepDefinition {
 
 
     @And("^User add AlertList-Name$")
-    public void userAddAlertListName() throws InterruptedException{
-        element=driver.findElement(By.className("form-control"));
-        if(element.isEnabled() && element.isDisplayed()){
+    public void userAddAlertListName() throws InterruptedException {
+        element = driver.findElement(By.className("form-control"));
+        if (element.isEnabled() && element.isDisplayed()) {
             element.sendKeys("Alert-1");
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
     }
 
     @And("^User add AlertList-Status$")
-    public void userAddAlertListStatus() throws InterruptedException{
-        element=driver.findElement(By.cssSelector("#collapseExample > div:nth-child(1) > div:nth-child(2) > div > select > option:nth-child(3)  "));
-        if(element.isEnabled() && element.isDisplayed()){
+    public void userAddAlertListStatus() throws InterruptedException {
+        element = driver.findElement(By.cssSelector("#collapseExample > div:nth-child(1) > div:nth-child(2) > div > select > option:nth-child(3)  "));
+        if (element.isEnabled() && element.isDisplayed()) {
             element.click();
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
     }
 
     @And("^User add AlertList-Vital$")
-    public void userAddAlertListVital() throws InterruptedException{
-        element=driver.findElement(By.cssSelector("#collapseExample > div:nth-child(2) > div > div > select > option:nth-child(3)"));
-        if(element.isEnabled() && element.isDisplayed()){
+    public void userAddAlertListVital() throws InterruptedException {
+        element = driver.findElement(By.cssSelector("#collapseExample > div:nth-child(2) > div > div > select > option:nth-child(3)"));
+        if (element.isEnabled() && element.isDisplayed()) {
             element.click();
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
     }
 
     @And("^User add AlertList-FROM-TO$")
-    public void userAddAlertListFROMTO() throws InterruptedException{
+    public void userAddAlertListFROMTO() throws InterruptedException {
         List<WebElement> wb = driver.findElements(By.className("form-control"));  //Check for all Button that have the same name with the others Items !
-        for(WebElement we: wb){
-            if(we.isDisplayed() && we.isEnabled() )
-            {
+        for (WebElement we : wb) {
+            if (we.isDisplayed() && we.isEnabled()) {
                 we.sendKeys("100");
                 we.sendKeys("200");
                 //Loop goes on till the end
@@ -706,47 +765,43 @@ public class LogInStepDefinition {
 
     @And("^User click on Disease-Plan$")
     public void userClickOnDiseasePlan() {
-        element=driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-2.col-sm-12.col-xs-12 > div > div > div > ul > li:nth-child(7) > a"));
-        if(element.isEnabled() && element.isDisplayed()){
+        element = driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-2.col-sm-12.col-xs-12 > div > div > div > ul > li:nth-child(7) > a"));
+        if (element.isEnabled() && element.isDisplayed()) {
             element.click();
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
     }
 
     @And("^User click on \\+Add Disease Plans$")
-    public void userClickOnAddDiseasePlans() throws InterruptedException{
-        element=driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > div.row > div > a"));
-        if(element.isEnabled() && element.isDisplayed()){
+    public void userClickOnAddDiseasePlans() throws InterruptedException {
+        element = driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > div.row > div > a"));
+        if (element.isEnabled() && element.isDisplayed()) {
             element.click();
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
         Thread.sleep(2000);
-}
+    }
 
     @And("^User click on KastriotDisease$")
     public void userClickOnKastriotDisease() throws InterruptedException {
-        element=driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > div > form > div > div > div:nth-child(1) > div > div > select > option:nth-child(8)"));
-        if(element.isEnabled() && element.isDisplayed()){
+        element = driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > div > form > div > div > div:nth-child(1) > div > div > select > option:nth-child(8)"));
+        if (element.isEnabled() && element.isDisplayed()) {
             element.click();
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
         Thread.sleep(2000);
     }
 
     @And("^User click on \\+Add New Disease Plan$")
-    public void userClickOnAddNewDiseasePlan()  throws InterruptedException{
+    public void userClickOnAddNewDiseasePlan() throws InterruptedException {
 
-        element=driver.findElement(By.className("add-new-btn"));
-        if(element.isEnabled() && element.isDisplayed()){
+        element = driver.findElement(By.className("add-new-btn"));
+        if (element.isEnabled() && element.isDisplayed()) {
             element.click();
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
         Thread.sleep(2000);
@@ -754,11 +809,10 @@ public class LogInStepDefinition {
 
     @And("^User click on Task and Vitals$")
     public void userClickOnTaskAndVitals() throws InterruptedException {
-        element=driver.findElement(By.cssSelector("#collapseExample > div:nth-child(1) > div:nth-child(1) > div > select > option:nth-child(3)"));
-        if(element.isEnabled() && element.isDisplayed()){
+        element = driver.findElement(By.cssSelector("#collapseExample > div:nth-child(1) > div:nth-child(1) > div > select > option:nth-child(3)"));
+        if (element.isEnabled() && element.isDisplayed()) {
             element.click();
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
         Thread.sleep(2000);
@@ -767,11 +821,10 @@ public class LogInStepDefinition {
 
     @And("^User click on Frequency$")
     public void userClickOnFrequency() throws InterruptedException {
-        element=driver.findElement(By.cssSelector("#collapseExample > div:nth-child(1) > div:nth-child(2) > div > select > option:nth-child(4)"));
-        if(element.isEnabled() && element.isDisplayed()){
+        element = driver.findElement(By.cssSelector("#collapseExample > div:nth-child(1) > div:nth-child(2) > div > select > option:nth-child(4)"));
+        if (element.isEnabled() && element.isDisplayed()) {
             element.click();
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
         Thread.sleep(2000);
@@ -782,9 +835,8 @@ public class LogInStepDefinition {
 
 
         List<WebElement> wb = driver.findElements(By.className("right-space"));  //Check for all Button that have the same name with the others Items !
-        for(WebElement we: wb){
-            if(we.isDisplayed() && we.isEnabled())
-            {
+        for (WebElement we : wb) {
+            if (we.isDisplayed() && we.isEnabled()) {
                 we.click();
                 //Loop goes on till the end
             }
@@ -794,94 +846,86 @@ public class LogInStepDefinition {
     }
 
     @And("^User click on Add Disease Plan$")
-    public void userClickOnAddDiseasePlan()  throws InterruptedException {
-        element=driver.findElement(By.className("btn-blue"));
-        if(element.isEnabled() && element.isDisplayed()){
+    public void userClickOnAddDiseasePlan() throws InterruptedException {
+        element = driver.findElement(By.className("btn-blue"));
+        if (element.isEnabled() && element.isDisplayed()) {
             element.click();
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
         Thread.sleep(2000);
     }
 
 
-
     @And("^User submit the save Button$")
     public void userSubmitTheSaveButton() throws InterruptedException {
-        element=driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > div > form > div > div > div.row.justify-content-center.m-t-50 > div:nth-child(1) > button"));
-        if(element.isEnabled() && element.isDisplayed()){
+        element = driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > div > form > div > div > div.row.justify-content-center.m-t-50 > div:nth-child(1) > button"));
+        if (element.isEnabled() && element.isDisplayed()) {
             element.click();
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
         Thread.sleep(2000);
     }
 
     @Then("^Delete the Disease Plan we have added$")
-    public void deleteTheDiseasePlanWeHaveAdded() throws InterruptedException{
-        element=driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > div.patient-table.right-content > div.row > div > table > tbody > tr:nth-child(3) > td:nth-child(4) > form > button"));
-        if(element.isEnabled() && element.isDisplayed()){
+    public void deleteTheDiseasePlanWeHaveAdded() throws InterruptedException {
+        element = driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > div.patient-table.right-content > div.row > div > table > tbody > tr:nth-child(3) > td:nth-child(4) > form > button"));
+        if (element.isEnabled() && element.isDisplayed()) {
             element.click();
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
         Thread.sleep(2000);
     }
 
     @And("^User click on Organisation$")
-    public void userClickOnOrganisation() throws InterruptedException{
-         element=driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-2.col-sm-12.col-xs-12 > div > div > div > ul > li:nth-child(8) > a"));
-        if(element.isEnabled() && element.isDisplayed()){
+    public void userClickOnOrganisation() throws InterruptedException {
+        element = driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-2.col-sm-12.col-xs-12 > div > div > div > ul > li:nth-child(8) > a"));
+        if (element.isEnabled() && element.isDisplayed()) {
             element.click();
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
         Thread.sleep(2000);
     }
 
     @And("^User clicn on \\+Add Organisation$")
-    public void userClicnOnAddOrganisation()  throws InterruptedException {
+    public void userClicnOnAddOrganisation() throws InterruptedException {
 
-        element=driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > div.row > div > a"));
-        if(element.isEnabled() && element.isDisplayed()){
+        element = driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > div.row > div > a"));
+        if (element.isEnabled() && element.isDisplayed()) {
             element.click();
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
         Thread.sleep(2000);
     }
 
     @And("^User Types in the Name$")
-    public void userTypesInTheName() throws InterruptedException{
-        element=driver.findElement(By.name("name"));
-        if(element.isEnabled() && element.isDisplayed()){
+    public void userTypesInTheName() throws InterruptedException {
+        element = driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > form > div > div:nth-child(1) > div > div > input"));
+        if (element.isEnabled() && element.isDisplayed()) {
             element.sendKeys("Kastriot");
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
         Thread.sleep(2000);
     }
 
     @And("^User Types in the Contact Name$")
-    public void userTypesInTheContactName()  throws InterruptedException  {
-        element=driver.findElement(By.name("contact_name"));
-        if(element.isEnabled() && element.isDisplayed()){
+    public void userTypesInTheContactName() throws InterruptedException {
+        element = driver.findElement(By.name("contact_name"));
+        if (element.isEnabled() && element.isDisplayed()) {
             element.sendKeys("Kastriot Contact");
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
         Thread.sleep(2000);
     }
 
     @And("^User Types in the Contact Contact Phone Number$")
-    public void userTypesInTheContactContactPhoneNumber()  throws InterruptedException  {
+    public void userTypesInTheContactContactPhoneNumber() throws InterruptedException {
         element = driver.findElement(By.name("contact_phone_number"));
         if (element.isEnabled() && element.isDisplayed()) {
             element.sendKeys("+38349525171");
@@ -914,7 +958,7 @@ public class LogInStepDefinition {
     }
 
     @Then("^Delete the Organisation we have added$")
-    public void deleteTheOrganisationWeHaveAdded()  throws InterruptedException {
+    public void deleteTheOrganisationWeHaveAdded() throws InterruptedException {
         element = driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > div.patient-table.right-content > div.row > div > table > tbody > tr:nth-child(8) > td:nth-child(5) > form > button"));
         if (element.isEnabled() && element.isDisplayed()) {
             element.sendKeys("(234) 234-2342");
@@ -923,6 +967,9 @@ public class LogInStepDefinition {
         }
         Thread.sleep(2000);
     }
+
+
+
 }
 
 
