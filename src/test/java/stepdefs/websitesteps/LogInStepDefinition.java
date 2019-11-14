@@ -186,7 +186,7 @@ public class LogInStepDefinition {
     public void putValidEmail() throws InterruptedException {
         element = driver.findElement(By.name("email"));
         if (element.isDisplayed() && element.isEnabled()) {
-                        element.sendKeys("kast32riotbasdflakaaj@hotmail.com");                //Email Unique
+                        element.sendKeys("kast32rflakaaj@hotmail.com");                //Email Unique
         } else {
             Assert.assertFalse(false);
         }
@@ -376,7 +376,7 @@ public class LogInStepDefinition {
         List<WebElement> list= driver.findElements(By.className("form-control"));
 
         if(element.isDisplayed() && element.isEnabled()){
-            list.get(9).sendKeys("lotisdsdfj1323223@gmail.com");                       //Email unique
+            list.get(9).sendKeys("lotisdsdfj1323s2a3@gmail.com");                       //Email unique
             Assert.assertTrue(element.isDisplayed()&& element.isEnabled());
 
         }else {
@@ -464,7 +464,7 @@ public class LogInStepDefinition {
     public void userPutInTheEmail() {
         element=driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > form > div > div:nth-child(1) > div:nth-child(3) > div > input"));
         if(element.isDisplayed()&& element.isEnabled()){
-            element.sendKeys("4343  f@gmail.comm");                               //Email unique
+            element.sendKeys("434wf@gmail.comm");                               //Email unique
         }else {
             Assert.assertFalse(false);
         }
