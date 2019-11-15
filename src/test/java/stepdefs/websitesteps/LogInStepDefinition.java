@@ -65,7 +65,7 @@ public class LogInStepDefinition {
     public void clickLogInButton() throws InterruptedException {
         WebElement element = driver.findElement(By.className("btn-blue"));
         element.click();
-        Thread.sleep(5000);
+
     }
 
 
@@ -98,15 +98,20 @@ public class LogInStepDefinition {
         element = driver.findElement(By.className("create-btn"));
         element.click();
         Thread.sleep(2000);
-        String s = "https://dev.vianovahealth.com/admin/users/create";
+        String s = driver.getCurrentUrl();
         Assert.assertEquals(s, "https://dev.vianovahealth.com/admin/users/create");
     }
 
     @And("^Add new Name :")
     public void addNewName() throws InterruptedException {
-        element = driver.findElement(By.name("first_name"));
-        element.sendKeys("Kastriot");
-        Thread.sleep(2000);
+        element = driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > form > div > div:nth-child(1) > div:nth-child(1) > div > input"));
+
+        if(element.isEnabled()&& element.isDisplayed()){
+            element.sendKeys("Kastriot");
+        }
+        else {
+            Assert.assertFalse(false);
+        }
     }
 
     @And("^Add new LastName :")
@@ -119,6 +124,7 @@ public class LogInStepDefinition {
             Assert.assertFalse(false);
         }
         Thread.sleep(2000);
+
 
     }
 
@@ -186,7 +192,7 @@ public class LogInStepDefinition {
     public void putValidEmail() throws InterruptedException {
         element = driver.findElement(By.name("email"));
         if (element.isDisplayed() && element.isEnabled()) {
-                        element.sendKeys("kast32rflakaaj@hotmail.com");                //Email Unique
+                        element.sendKeys("kast@hotmail.com");                //Email Unique
         } else {
             Assert.assertFalse(false);
         }
@@ -198,7 +204,7 @@ public class LogInStepDefinition {
         element = driver.findElement(By.name("password"));
         element.sendKeys("Loti@1997");
         Assert.assertTrue(element.isDisplayed());
-        Thread.sleep(3000);
+        Thread.sleep(000);
 
     }
 
@@ -208,7 +214,7 @@ public class LogInStepDefinition {
         element = driver.findElement(By.name("location"));
         element.sendKeys("First Location-1");
         Assert.assertTrue(element.isDisplayed());
-        Thread.sleep(1000);
+
     }
 
     @And("^Set Client  : \"([^\"]*)\"$")
@@ -216,7 +222,7 @@ public class LogInStepDefinition {
         element = driver.findElement(By.name(arg0));
         element.sendKeys("First Client ");
         Assert.assertTrue(element.isDisplayed());
-        Thread.sleep(2000);
+
     }
 
     @And("^Set Speciality Training$")
@@ -225,7 +231,7 @@ public class LogInStepDefinition {
         element = driver.findElement(By.cssSelector("#patient-care > div > div > div.col-md-10.col-sm-12.col-xs-12 > form > div > div:nth-child(6) > div:nth-child(3) > div > select > option:nth-child(3)"));
         element.click();
         Assert.assertTrue(element.isDisplayed());
-        Thread.sleep(2000);
+
     }
 
 
@@ -234,7 +240,7 @@ public class LogInStepDefinition {
         element = driver.findElement(By.cssSelector("#roles > option:nth-child(5)"));
         element.click();
         Assert.assertTrue(element.isDisplayed());
-        Thread.sleep(2000);
+
     }
 
     @And("^Click Save : \"([^\"]*)\"$")
