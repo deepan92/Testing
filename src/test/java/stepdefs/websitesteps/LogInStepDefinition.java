@@ -112,6 +112,8 @@ public class LogInStepDefinition {
         else {
             Assert.assertFalse(false);
         }
+//        String t= driver.getTitle();
+//        Assert.assertTrue(t.contains("asdf"));
     }
 
     @And("^Add new LastName :")
